@@ -18,4 +18,18 @@ public class StringUtils {
   public static boolean isEmptyOrNull(String string) {
     return string == null || string.isEmpty();
   }
+
+  /**
+   * Append to the string Builder all elements
+   * 
+   * @param sb The string builder
+   * @param elements The elements to append
+   * @return The new string builder
+   */
+  public static <T> StringBuilder appendAll(StringBuilder sb, T... elements) {
+    for (T element : elements) {
+      sb.append(element);
+    }
+    return sb;
+  }
 }

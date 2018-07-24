@@ -28,4 +28,5 @@ A library containing some awesome, incredible, unbelievable utils. Very common f
 ### StringUtils:
 
 + **boolean** isEmptyOrNull(String string) -> Returns true if the string is null or empty
++ **StringBuilder** appendAll(StringBuilder sb, T... elements) -> Append all elements to the string builder
 
