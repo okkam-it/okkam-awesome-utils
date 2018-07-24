@@ -14,7 +14,7 @@ A library containing some awesome, incredible, unbelievable utils. Very common f
 ### CharUtils:
 
 + **boolean** isBetween(char start, char end, char toCheck) -> Returns true if the char is between the range
-+ **boolean** isStrinctBetween(char start, char end, char toCheck) -> Returns true if the char is strict between the range
++ **boolean** isStrictBetween(char start, char end, char toCheck) -> Returns true if the char is strict between the range
 
 ### MapUtils:
 

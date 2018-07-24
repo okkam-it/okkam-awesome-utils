@@ -28,7 +28,7 @@ public class CharUtils {
    * @param end The end of the range
    * @param toCheck The element to check
    */
-  public static boolean isStrinctBetween(char start, char end, char toCheck) {
+  public static boolean isStrictBetween(char start, char end, char toCheck) {
     return toCheck > start && toCheck < end;
   }
 }
