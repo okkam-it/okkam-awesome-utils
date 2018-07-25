@@ -16,9 +16,14 @@ A library containing some awesome, incredible, unbelievable utils. Very common f
 + **boolean** isBetween(char start, char end, char toCheck) -> Returns true if the char is between the range
 + **boolean** isStrictBetween(char start, char end, char toCheck) -> Returns true if the char is strict between the range
 
+### CollectionUtils:
+
++ **List<T>** toList(Collection<T> coll) -> Build a list based on the input collection
+
 ### MapUtils:
 
-+ **List<T>** keySetToList(Map<T, T> map) -> Transform the key set of a map to a List
++ **List<T>** keySetToList(Map<T, T> map) -> Transform the key set of a map into a List
++ **List<T>** valuesToList(Map<T, T> map) -> Transform the values of a map into a List
 + **Map<T, T>** putIfNotExists(Map<T, T> map, T key, T value) -> Put an element to a map only if the key does not exist
 
 ### SetUtils:
