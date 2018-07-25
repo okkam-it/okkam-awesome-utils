@@ -26,4 +26,17 @@ public class SetUtils {
     }
     return ret;
   }
+
+  /**
+   * Add if not empty
+   * 
+   * @param set The input set
+   * @param element The element to add
+   */
+  public static <T> Set<T> toList(Set<T> set, T element) {
+    if (element != null) {
+      set.add(element);
+    }
+    return set;
+  }
 }
