@@ -35,3 +35,14 @@ A library containing some awesome, incredible, unbelievable utils. Very common f
 + **boolean** isEmptyOrNull(String string) -> Returns true if the string is null or empty
 + **StringBuilder** appendAll(StringBuilder sb, T... elements) -> Append all elements to the string builder
 
+## Usage:
+
+```xml
+	<dependencies>
+		<dependency>
+			<groupId>okkam-awesome-utils</groupId>
+			<artifactId>okkam-awesome-utils</artifactId>
+			<version>0.0.1-SNAPSHOT</version>
+		</dependency>
+	</dependencies>
+```
