@@ -20,6 +20,11 @@ A library containing some awesome, incredible, unbelievable utils. Very common f
 
 + **List<T>** toList(Collection<T> coll) -> Build a list based on the input collection
 
+### ListUtils:
+
++ **List<T>** appendElementsToList(List<T> list, T... elements) -> Append elements to a list
++ **List<T>** prependElementsToList(List<T> list, T... elements) -> Prepend elements to a list
+
 ### MapUtils:
 
 + **List<T>** keySetToList(Map<T, T> map) -> Transform the key set of a map into a List
