@@ -38,6 +38,8 @@ A library containing some awesome, incredible, unbelievable utils. Very common f
 ### StringUtils:
 
 + **boolean** isEmptyOrNull(String string) -> Returns true if the string is null or empty
++ boolean isNullEmptyOrBlank(String string) -> Returns true if the string is null or empty or blank
++ boolean isEmptyOrBlanNotNull(String string) -> Returns true if the string is empty or blank
 + **StringBuilder** appendAll(StringBuilder sb, T... elements) -> Append all elements to the string builder
 
 ## Usage:
@@ -47,7 +49,7 @@ A library containing some awesome, incredible, unbelievable utils. Very common f
 		<dependency>
 			<groupId>okkam-awesome-utils</groupId>
 			<artifactId>okkam-awesome-utils</artifactId>
-			<version>0.0.1-SNAPSHOT</version>
+			<version>0.0.2-SNAPSHOT</version>
 		</dependency>
 	</dependencies>
 ```

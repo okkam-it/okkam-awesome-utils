@@ -20,6 +20,24 @@ public class StringUtils {
   }
 
   /**
+   * Check if the string is null, blank or empty
+   * 
+   * @param string The input string
+   */
+  public static boolean isNullEmptyOrBlank(String string) {
+    return isEmptyOrNull(string) || string.trim().isEmpty();
+  }
+
+  /**
+   * Check if the string is empty or blank
+   * 
+   * @param string The input string
+   */
+  public static boolean isEmptyOrBlanNotNull(String string) {
+    return string != null && (string.isEmpty() || string.trim().isEmpty());
+  }
+
+  /**
    * Append to the string Builder all elements
    * 
    * @param sb The string builder
