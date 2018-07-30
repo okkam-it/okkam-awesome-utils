@@ -38,6 +38,21 @@ public class ListUtils {
   }
 
   /**
+   * add elements if not already contained
+   * 
+   * @param list The list
+   * @param elements The elements to add
+   */
+  public static <T> List<T> addIfNotContained(List<T> list, T... elements) {
+    for (T element : elements) {
+      if (!list.contains(element)) {
+        list.add(element);
+      }
+    }
+    return list;
+  }
+
+  /**
    * Add element1 to the list only if it is equals to element2
    * 
    * @param list The list

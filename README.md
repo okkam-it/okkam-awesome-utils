@@ -25,7 +25,8 @@ A library containing some awesome, incredible, unbelievable utils. Very common f
 + **List<T>** appendElementsToList(List<T> list, T... elements) -> Append elements to a list
 + **List<T>** prependElementsToList(List<T> list, T... elements) -> Prepend elements to a list
 + **List<T>** addIfEquals(List<T> list, T element1, T element2) -> Add element1 to the list if it is equals to element2
-+ **List<T>** addIfEquals(List<T> list, T elemToAdd, T1 element1, T1 element2) -> Add elemToAdd to the list if element1 is equals to element2
++ **List<T>** addIfEquals(List<T> list, T elemToAdd, T1 element1, T1 element2) -> Add elemToAdd to the list if element1 is equals to element
++ **List<T>** addIfNotContained(List<T> list, T... elements) -> append elements to the list if they are not already contained
 
 ### MapUtils:
 
