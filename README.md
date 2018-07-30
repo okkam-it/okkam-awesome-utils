@@ -24,11 +24,12 @@ A library containing some awesome, incredible, unbelievable utils. Very common f
 
 + **List<T>** appendElementsToList(List<T> list, T... elements) -> Append elements to a list
 + **List<T>** prependElementsToList(List<T> list, T... elements) -> Prepend elements to a list
++ **List<T>** addIfEquals(List<T> list, T element1, T element2) -> add element1 to list if it is equals to element2
 
 ### MapUtils:
 
-+ **List<T>** keySetToList(Map<T, T> map) -> Transform the key set of a map into a List
-+ **List<T>** valuesToList(Map<T, T> map) -> Transform the values of a map into a List
++ **List<T>** keySetToList(Map<T, ?> map) -> Transform the key set of a map into a List
++ **List<T>** valuesToList(Map<?, T> map) -> Transform the values of a map into a List
 + **Map<T, T>** putIfNotExists(Map<T, T> map, T key, T value) -> Put an element to a map only if the key does not exist
 
 ### SetUtils:
@@ -47,9 +48,9 @@ A library containing some awesome, incredible, unbelievable utils. Very common f
 ```xml
 	<dependencies>
 		<dependency>
-			<groupId>okkam-awesome-utils</groupId>
+			<groupId>it.okkam.utils</groupId>
 			<artifactId>okkam-awesome-utils</artifactId>
-			<version>0.0.2-SNAPSHOT</version>
+			<version>0.0.3-SNAPSHOT</version>
 		</dependency>
 	</dependencies>
 ```

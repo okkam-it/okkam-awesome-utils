@@ -29,11 +29,24 @@ public class ListUtils {
    * @param addElmt The elements to prepend
    */
   public static <T> List<T> prependElementsToList(List<T> list, T... elements) {
-    List<T> ret = new ArrayList<T>();
+    List<T> ret = new ArrayList<>();
     for (T element : elements) {
       ret.add(element);
     }
     ret.addAll(list);
     return ret;
+  }
+
+  /**
+   * Prepend elements to a list
+   * 
+   * @param array The list
+   * @param addElmt The elements to prepend
+   */
+  public static <T> List<T> addIfEquals(List<T> list, T element1, T element2) {
+    if (element1.equals(element2)) {
+      list.add(element1);
+    }
+    return list;
   }
 }
