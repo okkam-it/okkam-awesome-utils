@@ -47,6 +47,7 @@ A library containing some awesome, incredible, unbelievable utils. Very common f
 ```
 ## Usage:
 
+
 ```xml
 	<dependencies>
 		<dependency>
