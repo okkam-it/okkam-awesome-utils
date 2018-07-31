@@ -27,6 +27,7 @@ A library containing some awesome, incredible, unbelievable utils. Very common f
 + List<T> addIfEquals(List<T> list, T element1, T element2) -> Add element1 to the list if it is equals to element2
 + List<T> addIfEquals(List<T> list, T elemToAdd, T1 element1, T1 element2) -> Add elemToAdd to the list if element1 is equals to element
 + List<T> addIfNotContained(List<T> list, T... elements) -> append elements to the list if they are not already contained
++ List<T> createIfNull(List<T> list) -> create an empty list if the input is null. Return the input otherwise
 ```
 ### MapUtils:
 ```java
@@ -44,7 +45,16 @@ A library containing some awesome, incredible, unbelievable utils. Very common f
 + boolean isNullEmptyOrBlank(String string) -> Returns true if the string is null or empty or blank
 + boolean isEmptyOrBlanNotNull(String string) -> Returns true if the string is empty or blank
 + StringBuilder appendAll(StringBuilder sb, T... elements) -> Append all elements to the string builder
++ boolean noOneIsEmptyNorBlank(String... strings) -> Return true if there are not empty or blank strings
++ boolean noOneIsEmpty(String... strings) -> Return true if there are not empty strings
++ boolean isEmptyBlankOr(String string, String... ors) -> Returns true if the string is empty, blank, or one of the ors strings
++ String separateArrayBy(String[] array, String separator) -> generate a String based on array values and separator
 ```
+### FlinkMappers:
+```java
++ JacksonObjectMapper<T> -> Maps input pojo T into a Jackson Object string
+```
+
 ## Usage:
 
 
@@ -53,7 +63,7 @@ A library containing some awesome, incredible, unbelievable utils. Very common f
 		<dependency>
 			<groupId>it.okkam.utils</groupId>
 			<artifactId>okkam-awesome-utils</artifactId>
-			<version>0.0.3-SNAPSHOT</version>
+			<version>1.0.0-SNAPSHOT</version>
 		</dependency>
 	</dependencies>
 ```

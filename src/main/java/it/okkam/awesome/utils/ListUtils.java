@@ -82,4 +82,17 @@ public class ListUtils {
     }
     return list;
   }
+
+  /**
+   * Create an ArrayList if the List is null;
+   * 
+   * @param list The input list
+   * @return The old list or the input one
+   */
+  public static <T> List<T> createIfNull(List<T> list) {
+    if (list == null) {
+      list = new ArrayList<>();
+    }
+    return list;
+  }
 }
