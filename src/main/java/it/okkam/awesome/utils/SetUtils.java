@@ -1,6 +1,7 @@
 package it.okkam.awesome.utils;
 
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
@@ -36,6 +37,19 @@ public class SetUtils {
   public static <T> Set<T> toList(Set<T> set, T element) {
     if (element != null) {
       set.add(element);
+    }
+    return set;
+  }
+
+  /**
+   * Create an HashSet if the Set is null;
+   * 
+   * @param list The input set
+   * @return The empty set or the input one
+   */
+  public static <T> Set<T> createIfNull(Set<T> set) {
+    if (set == null) {
+      set = new HashSet<>();
     }
     return set;
   }
