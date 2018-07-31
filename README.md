@@ -38,6 +38,7 @@ A library containing some awesome, incredible, unbelievable utils. Very common f
 ### SetUtils:
 ```java
 + List<T> toList(Set<T> set) -> Build a list based on the input set
++ Set<T> createIfNull(Set<T> set) -> create an empty set if the input is null. Return the input set otherwise
 ```
 ### StringUtils:
 ```java
