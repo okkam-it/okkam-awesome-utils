@@ -1,5 +1,9 @@
 package it.okkam.awesome.utils;
 
+import java.util.Map;
+import java.util.Map.Entry;
+import java.util.TreeMap;
+
 /**
  * @author simone
  *
@@ -114,6 +118,30 @@ public class StringUtils {
         sb.append(array[i]);
       }
     }
+    return sb.toString();
+  }
+
+  /**
+   * Generate a string based on map values, with a specified separator. Use a tree map to guarantee
+   * ordering.
+   * 
+   * @param <T>
+   * 
+   * @param array The input map
+   * @param separator The separator
+   * @return The generated string
+   */
+  public static <T> String separateTreeMapValuesBy(Map<T, String> map, String separator) {
+    StringBuilder sb = new StringBuilder();
+    int i = 0;
+    for (Entry<T, String> entry : map.entrySet()) {
+      if (i > 0) {
+        sb.append(separator);
+      }
+      sb.append(entry.getValue());
+      i++;
+    }
+
     return sb.toString();
   }
 }
