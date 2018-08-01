@@ -11,16 +11,16 @@ public class CharUtilsTests {
 
   @Test
   public void testIsBetween() {
-    Assert.assertTrue(CharUtils.isBetween(A_CHAR,Z_CHAR,CHECK_CHAR));
-    Assert.assertTrue(CharUtils.isBetween(A_CHAR,Z_CHAR,A_CHAR));
-    Assert.assertFalse(CharUtils.isBetween(A_CHAR,Z_CHAR,'!'));
+    Assert.assertTrue(CharUtils.isBetween(A_CHAR, Z_CHAR, CHECK_CHAR));
+    Assert.assertTrue(CharUtils.isBetween(A_CHAR, Z_CHAR, A_CHAR));
+    Assert.assertFalse(CharUtils.isBetween(A_CHAR, Z_CHAR, '!'));
   }
-  
+
   @Test
   public void testIsStrictBetween() {
-    Assert.assertTrue(CharUtils.isStrictBetween(A_CHAR,Z_CHAR,CHECK_CHAR));
-    Assert.assertFalse(CharUtils.isStrictBetween(A_CHAR,Z_CHAR,A_CHAR));
-    Assert.assertFalse(CharUtils.isStrictBetween(A_CHAR,Z_CHAR,'!'));
+    Assert.assertTrue(CharUtils.isStrictBetween(A_CHAR, Z_CHAR, CHECK_CHAR));
+    Assert.assertFalse(CharUtils.isStrictBetween(A_CHAR, Z_CHAR, A_CHAR));
+    Assert.assertFalse(CharUtils.isStrictBetween(A_CHAR, Z_CHAR, '!'));
   }
 
 }

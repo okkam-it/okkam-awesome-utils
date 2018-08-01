@@ -3,6 +3,7 @@ package it.okkam.awesome.utils;
 import org.junit.Assert;
 import org.junit.Test;
 
+// NOSONAR
 public class ArrayUtilsTests {
 
   protected static final Character[] CHAR_ARRAY = { 'a', 'b', 'c' };
@@ -14,7 +15,7 @@ public class ArrayUtilsTests {
     Assert.assertEquals(0, ArrayUtils.getObjPos(CHAR_ARRAY, 'a'));
     Assert.assertEquals(0, ArrayUtils.getObjPos(INT_ARRAY, 0));
     Assert.assertEquals(0, ArrayUtils.getObjPos(STRING_ARRAY, "abc"));
-    
+
     Assert.assertEquals(-1, ArrayUtils.getObjPos(CHAR_ARRAY, 'd'));
     Assert.assertEquals(-1, ArrayUtils.getObjPos(INT_ARRAY, 8));
     Assert.assertEquals(-1, ArrayUtils.getObjPos(STRING_ARRAY, "lmn"));
