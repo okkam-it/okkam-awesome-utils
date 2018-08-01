@@ -5,22 +5,22 @@ import org.junit.Test;
 
 public class CharUtilsTests {
 
-  public static final char aChar = 'a';
-  public static final char zChar = 'z';
-  public static final char checkChar = 'g';
+  public static final char A_CHAR = 'a';
+  public static final char Z_CHAR = 'z';
+  public static final char CHECK_CHAR = 'g';
 
   @Test
   public void testIsBetween() {
-    Assert.assertTrue(CharUtils.isBetween(aChar,zChar,checkChar));
-    Assert.assertTrue(CharUtils.isBetween(aChar,zChar,aChar));
-    Assert.assertFalse(CharUtils.isBetween(aChar,zChar,'!'));
+    Assert.assertTrue(CharUtils.isBetween(A_CHAR,Z_CHAR,CHECK_CHAR));
+    Assert.assertTrue(CharUtils.isBetween(A_CHAR,Z_CHAR,A_CHAR));
+    Assert.assertFalse(CharUtils.isBetween(A_CHAR,Z_CHAR,'!'));
   }
   
   @Test
   public void testIsStrictBetween() {
-    Assert.assertTrue(CharUtils.isStrictBetween(aChar,zChar,checkChar));
-    Assert.assertFalse(CharUtils.isStrictBetween(aChar,zChar,aChar));
-    Assert.assertFalse(CharUtils.isStrictBetween(aChar,zChar,'!'));
+    Assert.assertTrue(CharUtils.isStrictBetween(A_CHAR,Z_CHAR,CHECK_CHAR));
+    Assert.assertFalse(CharUtils.isStrictBetween(A_CHAR,Z_CHAR,A_CHAR));
+    Assert.assertFalse(CharUtils.isStrictBetween(A_CHAR,Z_CHAR,'!'));
   }
 
 }
