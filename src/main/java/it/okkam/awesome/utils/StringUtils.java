@@ -47,7 +47,7 @@ public class StringUtils {
    */
   public static boolean noOneIsEmptyNorBlank(String... strings) {
     for (String string : strings) {
-      if (string.isEmpty() || string.trim().isEmpty()) {
+      if (string == null || string.isEmpty() || string.trim().isEmpty()) {
         return false;
       }
     }
@@ -61,7 +61,7 @@ public class StringUtils {
    */
   public static boolean noOneIsEmpty(String... strings) {
     for (String string : strings) {
-      if (string.isEmpty()) {
+      if (string == null || string.isEmpty()) {
         return false;
       }
     }
@@ -76,11 +76,15 @@ public class StringUtils {
    * @return A boolean value depending on the result
    */
   public static boolean isEmptyBlankOr(String string, String... ors) {
+    if (string == null) {
+      return false;
+    }
     if (string.isEmpty() || string.trim().isEmpty()) {
-      for (String or : ors) {
-        if (string.equals(or)) {
-          return true;
-        }
+      return true;
+    }
+    for (String or : ors) {
+      if (string.equals(or)) {
+        return true;
       }
     }
     return false;
@@ -107,7 +111,7 @@ public class StringUtils {
    * @param separator The separator
    * @return The generated string
    */
-  public static String separateArrayBy(String[] array, String separator) {
+  public static <T> String separateArrayBy(T[] array, String separator) {
     StringBuilder sb = new StringBuilder();
     for (int i = 0; i < array.length; i++) {
       if (i > 0) {

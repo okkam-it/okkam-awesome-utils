@@ -49,7 +49,7 @@ A library containing some awesome, incredible, unbelievable utils. Very common f
 + boolean noOneIsEmptyNorBlank(String... strings) -> Return true if there are not empty or blank strings
 + boolean noOneIsEmpty(String... strings) -> Return true if there are not empty strings
 + boolean isEmptyBlankOr(String string, String... ors) -> Returns true if the string is empty, blank, or one of the ors strings
-+ String separateArrayBy(String[] array, String separator) -> Generate a String based on array values and separator
++ String separateArrayBy(T[] array, String separator) -> Generate a String based on array values and separator
 + String separateTreeMapValuesBy(Map<T, String> map, String separator) -> Generate a String based on map values and separator. Pass a TreeMap to guarantee ordering
 ```
 ### FlinkMappers:
