@@ -1,4 +1,4 @@
-package it.okkam.awesome.utils;
+package org.okkam.awesome.utils;
 
 import java.util.Map;
 import java.util.Map.Entry;

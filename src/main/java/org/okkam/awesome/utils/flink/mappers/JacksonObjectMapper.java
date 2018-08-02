@@ -1,4 +1,4 @@
-package it.okkam.awesome.utils.flink.mappers;
+package org.okkam.awesome.utils.flink.mappers;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 

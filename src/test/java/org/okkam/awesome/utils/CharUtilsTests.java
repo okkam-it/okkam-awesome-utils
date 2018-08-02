@@ -1,7 +1,8 @@
-package it.okkam.awesome.utils;
+package org.okkam.awesome.utils;
 
 import org.junit.Assert;
 import org.junit.Test;
+import org.okkam.awesome.utils.CharUtils;
 
 public class CharUtilsTests {
 
