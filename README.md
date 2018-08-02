@@ -38,6 +38,7 @@ A library containing some awesome, incredible, unbelievable utils. Very common f
 ### SetUtils:
 ```java
 + List<T> toList(Set<T> set) -> Build a list based on the input set
++ Set<T> addIfNotEmpty(Set<T> set, T element) -> Add element to a set if it is not empty
 + Set<T> createIfNull(Set<T> set) -> create an empty set if the input is null. Return the input set otherwise
 ```
 ### StringUtils:
@@ -59,13 +60,25 @@ A library containing some awesome, incredible, unbelievable utils. Very common f
 
 ## Usage:
 
+Last stable version:
 
 ```xml
 	<dependencies>
 		<dependency>
-			<groupId>it.okkam.utils</groupId>
+			<groupId>org.okkam.utils</groupId>
 			<artifactId>okkam-awesome-utils</artifactId>
-			<version>1.0.0-SNAPSHOT</version>
+			<version>1.0.0</version>
+		</dependency>
+	</dependencies>
+```
+Snapshot version:
+
+```xml
+	<dependencies>
+		<dependency>
+			<groupId>org.okkam.utils</groupId>
+			<artifactId>okkam-awesome-utils</artifactId>
+			<version>1.0.1-SNAPSHOT</version>
 		</dependency>
 	</dependencies>
 ```

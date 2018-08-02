@@ -13,6 +13,7 @@ public class ArrayUtils {
   /**
    * Get the position of the object in an array
    * 
+   * @param <T> The input type
    * @param array The input array
    * @param obj The element to find
    * @return the position into the array. -1 otherwise.
@@ -29,6 +30,7 @@ public class ArrayUtils {
   /**
    * Transform the array into a list
    * 
+   * @param <T> The input type
    * @param array The input array
    * @return The list composed by the element of the input array
    */
@@ -43,6 +45,7 @@ public class ArrayUtils {
   /**
    * Transform the array into a list, prepending an element
    * 
+   * @param <T> The input type
    * @param elem The element to prepend
    * @param array The input array
    * @return The list composed by the element of the input array
@@ -59,6 +62,7 @@ public class ArrayUtils {
   /**
    * Transform the array into a list, appending an element
    * 
+   * @param <T> The input type
    * @param array The input array
    * @param elem The element to append
    * @return The list composed by the element of the input array
@@ -75,8 +79,10 @@ public class ArrayUtils {
   /**
    * Append a single element to an array
    * 
+   * @param <T> The input type
    * @param array The array
    * @param addElmt The element to append
+   * @return The new array
    */
   public static <T> T[] addElementToArray(T[] array, T addElmt) {
     T[] newArray = Arrays.copyOf(array, array.length + 1);
@@ -88,9 +94,10 @@ public class ArrayUtils {
   /**
    * Append a List of elements to an array
    * 
+   * @param <T> The input type
    * @param array The array
    * @param addElmts The List of elements to append
-   * @return
+   * @return The new array
    */
   public static <T> T[] addElementsToArray(T[] array, List<T> addElmts) {
     T[] newArray = Arrays.copyOf(array, array.length + addElmts.size());

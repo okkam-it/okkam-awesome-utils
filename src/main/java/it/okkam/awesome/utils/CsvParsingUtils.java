@@ -17,13 +17,15 @@ public class CsvParsingUtils {
     throw new IllegalStateException("Utility class");
   }
 
+
   /**
    * Parse a CSV
    * 
    * @param filePath The path to the file
    * @param delimiter The delimiter
    * @param quote The string quote
-   * @return An iterable<CSVRecord> collection
+   * @return An iterable collection
+   * @throws IOException If the input does not exists
    */
   public static Iterable<CSVRecord> parseFile(String filePath, char delimiter, char quote)
       throws IOException {

@@ -16,6 +16,7 @@ public class CharUtils {
    * @param start The begin of the range
    * @param end The end of the range
    * @param toCheck The element to check
+   * @return The check result
    */
   public static boolean isBetween(char start, char end, char toCheck) {
     return toCheck >= start && toCheck <= end;
@@ -27,6 +28,7 @@ public class CharUtils {
    * @param start The begin of the range
    * @param end The end of the range
    * @param toCheck The element to check
+   * @return The check result
    */
   public static boolean isStrictBetween(char start, char end, char toCheck) {
     return toCheck > start && toCheck < end;

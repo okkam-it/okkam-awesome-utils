@@ -17,7 +17,9 @@ public class CollectionUtils {
   /**
    * Return a list from a collection
    * 
-   * @param set The input collection
+   * @param <T> The collection type
+   * @param coll The input collection
+   * @return The collection as a list
    */
   public static <T> List<T> toList(Collection<T> coll) {
     List<T> ret = new ArrayList<>();

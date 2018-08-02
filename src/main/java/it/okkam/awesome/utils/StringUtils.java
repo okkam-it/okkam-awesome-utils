@@ -17,6 +17,7 @@ public class StringUtils {
    * Check if the string is null or empty
    * 
    * @param string The input string
+   * @return The check result
    */
   public static boolean isEmptyOrNull(String string) {
     return string == null || string.isEmpty();
@@ -26,6 +27,7 @@ public class StringUtils {
    * Check if the string is null, blank or empty
    * 
    * @param string The input string
+   * @return The check result
    */
   public static boolean isNullEmptyOrBlank(String string) {
     return isEmptyOrNull(string) || string.trim().isEmpty();
@@ -35,6 +37,7 @@ public class StringUtils {
    * Check if the string is empty or blank
    * 
    * @param string The input string
+   * @return The check result
    */
   public static boolean isEmptyOrBlankNotNull(String string) {
     return string != null && (string.isEmpty() || string.trim().isEmpty());
@@ -44,6 +47,7 @@ public class StringUtils {
    * Check if the strings are empty or blank
    * 
    * @param strings The input strings
+   * @return The check result
    */
   public static boolean noOneIsEmptyNorBlank(String... strings) {
     for (String string : strings) {
@@ -58,6 +62,7 @@ public class StringUtils {
    * Check if the strings are empty
    * 
    * @param strings The input strings
+   * @return The check result
    */
   public static boolean noOneIsEmpty(String... strings) {
     for (String string : strings) {
@@ -71,7 +76,7 @@ public class StringUtils {
   /**
    * Check if the string is empty or has one of specified values
    * 
-   * @param strings The input strings
+   * @param string The input string
    * @param ors The values to check
    * @return A boolean value depending on the result
    */
@@ -93,6 +98,7 @@ public class StringUtils {
   /**
    * Append to the string Builder all elements
    * 
+   * @param <T> The elements type
    * @param sb The string builder
    * @param elements The elements to append
    * @return The new string builder
@@ -107,6 +113,7 @@ public class StringUtils {
   /**
    * Generate a string based on array, with a specified separator
    * 
+   * @param <T> The array type
    * @param array The input array
    * @param separator The separator
    * @return The generated string
@@ -128,9 +135,8 @@ public class StringUtils {
    * Generate a string based on map values, with a specified separator. Use a tree map to guarantee
    * ordering.
    * 
-   * @param <T>
-   * 
-   * @param array The input map
+   * @param <T> The map key type
+   * @param map The input map
    * @param separator The separator
    * @return The generated string
    */

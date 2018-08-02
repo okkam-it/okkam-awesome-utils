@@ -18,7 +18,9 @@ public class SetUtils {
   /**
    * Return a list from a set
    * 
+   * @param <T> The Set type
    * @param set The input set
+   * @return The list based on the set
    */
   public static <T> List<T> toList(Set<T> set) {
     List<T> ret = new ArrayList<>();
@@ -31,10 +33,12 @@ public class SetUtils {
   /**
    * Add if not empty
    * 
+   * @param <T> The Set and element type
    * @param set The input set
    * @param element The element to add
+   * @return The empty set or the input one
    */
-  public static <T> Set<T> toList(Set<T> set, T element) {
+  public static <T> Set<T> addIfNotEmpty(Set<T> set, T element) {
     if (element != null) {
       set.add(element);
     }
@@ -44,7 +48,8 @@ public class SetUtils {
   /**
    * Create an HashSet if the Set is null;
    * 
-   * @param list The input set
+   * @param <T> The Set type
+   * @param set The input set
    * @return The empty set or the input one
    */
   public static <T> Set<T> createIfNull(Set<T> set) {

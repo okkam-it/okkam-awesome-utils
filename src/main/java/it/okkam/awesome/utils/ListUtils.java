@@ -12,8 +12,10 @@ public class ListUtils {
   /**
    * Append elements to a list
    * 
-   * @param array The list
-   * @param addElmt The elements to append
+   * @param <T> The list and elements type
+   * @param list The list
+   * @param elements The elements to append
+   * @return The new List
    */
   public static <T> List<T> appendElementsToList(List<T> list, T... elements) {
     for (T element : elements) {
@@ -25,8 +27,10 @@ public class ListUtils {
   /**
    * Prepend elements to a list
    * 
+   * @param <T> The list and elements type
    * @param list The list
    * @param elements The elements to prepend
+   * @return The new List
    */
   public static <T> List<T> prependElementsToList(List<T> list, T... elements) {
     List<T> ret = new ArrayList<>();
@@ -40,8 +44,10 @@ public class ListUtils {
   /**
    * add elements if not already contained
    * 
+   * @param <T> The list and elements type
    * @param list The list
    * @param elements The elements to add
+   * @return The new List
    */
   public static <T> List<T> addIfNotContained(List<T> list, T... elements) {
     for (T element : elements) {
@@ -55,6 +61,7 @@ public class ListUtils {
   /**
    * Add element1 to the list only if it is equals to element2
    * 
+   * @param <T> The list and elements type
    * @param list The list
    * @param element1 The first element
    * @param element2 The second element
@@ -70,8 +77,10 @@ public class ListUtils {
   /**
    * Add elemToAdd to the list only if element1 is equals to element2
    * 
+   * @param <T> The list and elements type
+   * @param <T1> The type of elements to check
    * @param list The list
-   * @param element1 The element to add
+   * @param elemToAdd The element to add
    * @param element1 The first element
    * @param element2 The second element
    * @return The input list
@@ -86,6 +95,7 @@ public class ListUtils {
   /**
    * Create an ArrayList if the List is null;
    * 
+   * @param <T> The list type
    * @param list The input list
    * @return The old list or the input one
    */
