@@ -1,4 +1,4 @@
-package it.okkam.awesome.utils;
+package org.okkam.awesome.utils;
 
 import java.util.ArrayList;
 import java.util.List;
