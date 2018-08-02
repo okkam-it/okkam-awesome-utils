@@ -33,12 +33,11 @@ public class ListUtils {
    * @return The new List
    */
   public static <T> List<T> prependElementsToList(List<T> list, T... elements) {
-    List<T> ret = new ArrayList<>();
+    int i = 0;
     for (T element : elements) {
-      ret.add(element);
+      list.add(i++,element);
     }
-    ret.addAll(list);
-    return ret;
+    return list;
   }
 
   /**

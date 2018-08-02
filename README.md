@@ -6,8 +6,8 @@ A library containing some awesome, incredible, unbelievable utils. Very common f
 ```java
 + int getObjPos(T[] array, T obj) -> return the position of the object into the array. -1 if not exists
 + List<T> toList(T[] array) -> Build a list based on the array
-+ List<T> toListStartingWith(T elem, T[] array) -> Build a list based on the array, prepending an element
-+ List<T> toListEndingWith(T[] array, T elem) -> Build a list based on the array, appending an element
++ List<T> toListStartingWith(T[] array, T... elems) -> Build a list based on the array, prepending a set of elements
++ List<T> toListEndingWith(T[] array, T... elems) -> Build a list based on the array, appending a set of elements
 + T[] addElementToArray(T[] array, T addElmt) -> Append a single element to an array
 + T[] addElementsToArray(T[] array, List<T> addElmts) -> Append a list of elements to an array
 ```

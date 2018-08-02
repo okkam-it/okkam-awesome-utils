@@ -42,37 +42,44 @@ public class ArrayUtils {
     return ret;
   }
 
+
   /**
-   * Transform the array into a list, prepending an element
+   * Transform the array into a list, prepending a set of elements
    * 
    * @param <T> The input type
-   * @param elem The element to prepend
    * @param array The input array
+   * @param elems The elements to prepend
    * @return The list composed by the element of the input array
    */
-  public static <T> List<T> toListStartingWith(T elem, T[] array) {
+  public static <T> List<T> toListStartingWith(T[] array, T... elems) {
     List<T> ret = new ArrayList<>();
-    ret.add(elem);
-    for (int i = 0; i < array.length; i++) {
-      ret.add(array[i]);
+    int cnt = 0;
+    for (T elem : elems) {
+      ret.add(cnt, elem);
+      cnt++;
+    }
+    for (T arrayElem : array) {
+      ret.add(arrayElem);
     }
     return ret;
   }
 
   /**
-   * Transform the array into a list, appending an element
+   * Transform the array into a list, appending a set of elements
    * 
    * @param <T> The input type
    * @param array The input array
-   * @param elem The element to append
+   * @param elems The elements to append
    * @return The list composed by the element of the input array
    */
-  public static <T> List<T> toListEndingWith(T[] array, T elem) {
+  public static <T> List<T> toListEndingWith(T[] array, T... elems) {
     List<T> ret = new ArrayList<>();
-    for (int i = 0; i < array.length; i++) {
-      ret.add(array[i]);
+    for (T arrayElem : array) {
+      ret.add(arrayElem);
     }
-    ret.add(elem);
+    for (T elem : elems) {
+      ret.add(elem);
+    }
     return ret;
   }
 
@@ -107,5 +114,5 @@ public class ArrayUtils {
     }
     return newArray;
   }
-  
+
 }
