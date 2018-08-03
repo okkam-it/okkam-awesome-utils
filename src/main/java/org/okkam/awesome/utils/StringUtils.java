@@ -103,6 +103,7 @@ public class StringUtils {
    * @param elements The elements to append
    * @return The new string builder
    */
+  @SafeVarargs
   public static <T> StringBuilder appendAll(StringBuilder sb, T... elements) {
     for (T element : elements) {
       sb.append(element);
