@@ -11,7 +11,7 @@ public class ArrayUtils {
   }
 
   /**
-   * Get the position of the object in an array
+   * Get the position of the object in an array.
    * 
    * @param <T> The input type
    * @param array The input array
@@ -44,7 +44,7 @@ public class ArrayUtils {
 
 
   /**
-   * Transform the array into a list, prepending a set of elements
+   * Transform the array into a list, prepending a set of elements.
    * 
    * @param <T> The input type
    * @param array The input array
@@ -53,10 +53,8 @@ public class ArrayUtils {
    */
   public static <T> List<T> toListStartingWith(T[] array, T... elems) {
     List<T> ret = new ArrayList<>();
-    int cnt = 0;
     for (T elem : elems) {
-      ret.add(cnt, elem);
-      cnt++;
+      ret.add(elem);
     }
     for (T arrayElem : array) {
       ret.add(arrayElem);
@@ -65,7 +63,7 @@ public class ArrayUtils {
   }
 
   /**
-   * Transform the array into a list, appending a set of elements
+   * Transform the array into a list, appending a set of elements.
    * 
    * @param <T> The input type
    * @param array The input array
@@ -84,22 +82,21 @@ public class ArrayUtils {
   }
 
   /**
-   * Append a single element to an array
+   * Append a single element to an array.
    * 
    * @param <T> The input type
    * @param array The array
-   * @param addElmt The element to append
+   * @param addElmt The elements to append
    * @return The new array
    */
-  public static <T> T[] addElementToArray(T[] array, T addElmt) {
-    T[] newArray = Arrays.copyOf(array, array.length + 1);
-    System.arraycopy(array, 0, newArray, 0, array.length);
-    newArray[newArray.length - 1] = addElmt;
+  public static <T> T[] addElementToArray(T[] array, T... addElmt) {
+    T[] newArray = Arrays.copyOf(array, array.length + addElmt.length);
+    System.arraycopy(addElmt, 0, newArray, array.length, addElmt.length);
     return newArray;
   }
 
   /**
-   * Append a List of elements to an array
+   * Append a List of elements to an array.
    * 
    * @param <T> The input type
    * @param array The array

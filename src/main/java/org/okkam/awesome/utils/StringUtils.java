@@ -3,10 +3,6 @@ package org.okkam.awesome.utils;
 import java.util.Map;
 import java.util.Map.Entry;
 
-/**
- * @author simone
- *
- */
 public class StringUtils {
 
   private StringUtils() {
@@ -14,44 +10,37 @@ public class StringUtils {
   }
 
   /**
-   * Check if the string is null or empty
+   * Check if the string is null or empty.
    * 
    * @param string The input string
+   * @param trim true to trim the input string (when not null)
    * @return The check result
    */
-  public static boolean isEmptyOrNull(String string) {
-    return string == null || string.isEmpty();
+  public static boolean isEmptyOrNull(String string, boolean trim) {
+    return string == null || (trim ? string.trim().isEmpty() : string.isEmpty());
   }
 
   /**
-   * Check if the string is null, blank or empty
+   * Check if the string is empty and not null.
    * 
    * @param string The input string
+   * @param trim true to trim the input string (when not null)
    * @return The check result
    */
-  public static boolean isNullEmptyOrBlank(String string) {
-    return isEmptyOrNull(string) || string.trim().isEmpty();
+  public static boolean isEmptyAndNotNull(String string, boolean trim) {
+    return string != null && (trim ? string.trim().isEmpty() : string.isEmpty());
   }
 
   /**
-   * Check if the string is empty or blank
+   * Check if the strings are not empty and not blank.
    * 
-   * @param string The input string
-   * @return The check result
-   */
-  public static boolean isEmptyOrBlankNotNull(String string) {
-    return string != null && (string.isEmpty() || string.trim().isEmpty());
-  }
-
-  /**
-   * Check if the strings are empty or blank
-   * 
+   * @param trim true to trim the strings (when not empty)
    * @param strings The input strings
    * @return The check result
    */
-  public static boolean noOneIsEmptyNorBlank(String... strings) {
+  public static boolean noOneIsEmptyOrNull(boolean trim, String... strings) {
     for (String string : strings) {
-      if (string == null || string.isEmpty() || string.trim().isEmpty()) {
+      if (isEmptyOrNull(string, trim)) {
         return false;
       }
     }
@@ -59,50 +48,52 @@ public class StringUtils {
   }
 
   /**
-   * Check if the strings are empty
-   * 
-   * @param strings The input strings
-   * @return The check result
-   */
-  public static boolean noOneIsEmpty(String... strings) {
-    for (String string : strings) {
-      if (string == null || string.isEmpty()) {
-        return false;
-      }
-    }
-    return true;
-  }
-
-  /**
-   * Check if the string is empty or has one of specified values
+   * Check if the string is one of the specified values. String could also be null, in this case the
+   * method will return true if there's a null element in the passed array.
    * 
    * @param string The input string
+   * @param trim true to trim the strings to check for equality
    * @param ors The values to check
    * @return A boolean value depending on the result
    */
-  public static boolean isEmptyBlankOr(String string, String... ors) {
-    if (string == null) {
-      return false;
-    }
-    if (string.isEmpty() || string.trim().isEmpty()) {
-      return true;
-    }
+  public static boolean isOneOf(String string, boolean trim, String... ors) {
+    string = trimIfNecessary(true, string);
+
     for (String or : ors) {
-      if (string.equals(or)) {
-        return true;
+      if (string == null) {
+        if (or == null) {
+          return true;
+        }
+      } else {
+        or = trimIfNecessary(trim, or);
+        if (string.equals(or)) {
+          return true;
+        }
       }
     }
     return false;
   }
 
   /**
-   * Append to the string Builder all elements
+   * Returns the trimmed string when not null and necessary (i.e. trim is true).
+   * 
+   * @param trim true to trim the passed string
+   * @param src the string to trim (maybe)
+   * @return the trimmed string (if necessary). Return null if src is null.
+   */
+  public static String trimIfNecessary(boolean trim, String src) {
+    return src != null && trim ? src.trim() : src;
+  }
+
+  /**
+   * Append to the string Builder all elements.
    * 
    * @param <T> The elements type
    * @param sb The string builder
    * @param elements The elements to append
    * @return The new string builder
    */
+  @SafeVarargs
   public static <T> StringBuilder appendAll(StringBuilder sb, T... elements) {
     for (T element : elements) {
       sb.append(element);
@@ -111,7 +102,7 @@ public class StringUtils {
   }
 
   /**
-   * Generate a string based on array, with a specified separator
+   * Generate a string based on array, with a specified separator.
    * 
    * @param <T> The array type
    * @param array The input array
@@ -124,9 +115,7 @@ public class StringUtils {
       if (i > 0) {
         sb.append(separator);
       }
-      if (array[i] != null) {
-        sb.append(array[i]);
-      }
+      sb.append(array[i] == null ? "" : array[i]);
     }
     return sb.toString();
   }

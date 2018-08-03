@@ -1,9 +1,5 @@
 package org.okkam.awesome.utils;
 
-/**
- * @author simone
- *
- */
 public class CharUtils {
 
   private CharUtils() {
@@ -11,7 +7,7 @@ public class CharUtils {
   }
 
   /**
-   * Check if a char is between a range
+   * Check if a char is between a range.
    * 
    * @param start The begin of the range
    * @param end The end of the range
@@ -23,7 +19,7 @@ public class CharUtils {
   }
 
   /**
-   * Check if a char is strict between a range
+   * Check if a char is strict between a range.
    * 
    * @param start The begin of the range
    * @param end The end of the range

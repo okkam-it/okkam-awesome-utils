@@ -10,7 +10,7 @@ public class ListUtils {
   }
 
   /**
-   * Append elements to a list
+   * Append elements to a list.
    * 
    * @param <T> The list and elements type
    * @param list The list
@@ -25,7 +25,7 @@ public class ListUtils {
   }
 
   /**
-   * Prepend elements to a list
+   * Prepend elements to a list.
    * 
    * @param <T> The list and elements type
    * @param list The list
@@ -35,13 +35,13 @@ public class ListUtils {
   public static <T> List<T> prependElementsToList(List<T> list, T... elements) {
     int i = 0;
     for (T element : elements) {
-      list.add(i++,element);
+      list.add(i++, element);
     }
     return list;
   }
 
   /**
-   * add elements if not already contained
+   * add elements if not already contained.
    * 
    * @param <T> The list and elements type
    * @param list The list
@@ -58,7 +58,7 @@ public class ListUtils {
   }
 
   /**
-   * Add element1 to the list only if it is equals to element2
+   * Add element1 to the list only if it is equals to element2.
    * 
    * @param <T> The list and elements type
    * @param list The list
@@ -92,7 +92,7 @@ public class ListUtils {
   }
 
   /**
-   * Create an ArrayList if the List is null;
+   * Create an ArrayList if the List is null.
    * 
    * @param <T> The list type
    * @param list The input list

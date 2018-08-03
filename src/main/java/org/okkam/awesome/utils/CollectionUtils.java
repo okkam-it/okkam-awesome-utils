@@ -4,10 +4,6 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 
-/**
- * @author simone
- *
- */
 public class CollectionUtils {
 
   private CollectionUtils() {
@@ -15,14 +11,17 @@ public class CollectionUtils {
   }
 
   /**
-   * Return a list from a collection
+   * Return a list from a collection.
    * 
    * @param <T> The collection type
    * @param coll The input collection
    * @return The collection as a list
    */
   public static <T> List<T> toList(Collection<T> coll) {
-    List<T> ret = new ArrayList<>();
+    if (coll instanceof List) {
+      return (List<T>) coll;
+    }
+    final List<T> ret = new ArrayList<>(coll.size());
     for (T item : coll) {
       ret.add(item);
     }
