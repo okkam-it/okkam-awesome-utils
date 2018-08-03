@@ -8,13 +8,18 @@ A library containing some awesome, incredible, unbelievable utils. Very common f
 + List<T> toList(T[] array) -> Build a list based on the array
 + List<T> toListStartingWith(T[] array, T... elems) -> Build a list based on the array, prepending a set of elements
 + List<T> toListEndingWith(T[] array, T... elems) -> Build a list based on the array, appending a set of elements
-+ T[] addElementToArray(T[] array, T addElmt) -> Append a single element to an array
++ T[] addElementToArray(T[] array, T... addElmt) -> Append a set of elements to an array
 + T[] addElementsToArray(T[] array, List<T> addElmts) -> Append a list of elements to an array
 ```
 ### CharUtils:
 ```java
 + boolean isBetween(char start, char end, char toCheck) -> Returns true if the char is between the range
 + boolean isStrictBetween(char start, char end, char toCheck) -> Returns true if the char is strict between the range
+```
+### ComparatorUtils:
+```java
++ Comparator<T> sortAscending() -> Comparator to sort ascending (or alphabetically for strings)
++ Comparator<T> sortDescending() -> Comparator to sort descending (or reverse alphabetically for strings)
 ```
 ### CollectionUtils:
 ```java
@@ -31,25 +36,22 @@ A library containing some awesome, incredible, unbelievable utils. Very common f
 ```
 ### MapUtils:
 ```java
-+ List<T> keySetToList(Map<T, ?> map) -> Transform the key set of a map into a List
 + List<T> valuesToList(Map<?, T> map) -> Transform the values of a map into a List
 + Map<T, T> putIfNotExists(Map<T, T> map, T key, T value) -> Put an element to a map only if the key does not exist
 ```
 ### SetUtils:
 ```java
-+ List<T> toList(Set<T> set) -> Build a list based on the input set
 + Set<T> addIfNotEmpty(Set<T> set, T element) -> Add element to a set if it is not empty
 + Set<T> createIfNull(Set<T> set) -> create an empty set if the input is null. Return the input set otherwise
 ```
 ### StringUtils:
 ```java
-+ boolean isEmptyOrNull(String string) -> Returns true if the string is null or empty
-+ boolean isNullEmptyOrBlank(String string) -> Returns true if the string is null or empty or blank
-+ boolean isEmptyOrBlanNotNull(String string) -> Returns true if the string is empty or blank
++ boolean isEmptyOrNull(String string, boolean trim)) -> Returns true if the string is null or empty
++ boolean isEmptyAndNotNull(String string, boolean trim)) -> Check if the string is empty and not null
++ boolean noOneIsEmptyOrNull(boolean trim, String... strings) -> Check if the strings are not empty and not blank
++ boolean isOneOf(String string, boolean trim, String... ors) -> Check if the string is one of the specified values. String could also be null, in this case the method will return true if there's a null element in the passed array
++ String trimIfNecessary(boolean trim, String src) -> Returns the trimmed string when not null and necessary (i.e. trim is true)
 + StringBuilder appendAll(StringBuilder sb, T... elements) -> Append all elements to the string builder
-+ boolean noOneIsEmptyNorBlank(String... strings) -> Return true if there are not empty or blank strings
-+ boolean noOneIsEmpty(String... strings) -> Return true if there are not empty strings
-+ boolean isEmptyBlankOr(String string, String... ors) -> Returns true if the string is empty, blank, or one of the ors strings
 + String separateArrayBy(T[] array, String separator) -> Generate a String based on array values and separator
 + String separateTreeMapValuesBy(Map<T, String> map, String separator) -> Generate a String based on map values and separator. Pass a TreeMap to guarantee ordering
 ```
