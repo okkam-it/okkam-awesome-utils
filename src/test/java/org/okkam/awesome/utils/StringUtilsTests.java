@@ -15,61 +15,79 @@ public class StringUtilsTests {
 
   @Test
   public void testIsEmptyOrNull() {
-    Assert.assertTrue(StringUtils.isEmptyOrNull(EMPTY_STRING));
-    Assert.assertTrue(StringUtils.isEmptyOrNull(NULL_STRING));
-    Assert.assertFalse(StringUtils.isEmptyOrNull(BLANK_STRING));
-    Assert.assertFalse(StringUtils.isEmptyOrNull(GOOD_STRING_1));
+    Assert.assertTrue(StringUtils.isEmptyOrNull(EMPTY_STRING, false));
+    Assert.assertTrue(StringUtils.isEmptyOrNull(NULL_STRING, false));
+    Assert.assertFalse(StringUtils.isEmptyOrNull(BLANK_STRING, false));
+    Assert.assertFalse(StringUtils.isEmptyOrNull(GOOD_STRING_1, false));
   }
 
   @Test
   public void testIsNullEmptyOrBlank() {
-    Assert.assertTrue(StringUtils.isNullEmptyOrBlank(EMPTY_STRING));
-    Assert.assertTrue(StringUtils.isNullEmptyOrBlank(NULL_STRING));
-    Assert.assertTrue(StringUtils.isNullEmptyOrBlank(BLANK_STRING));
-    Assert.assertFalse(StringUtils.isNullEmptyOrBlank(GOOD_STRING_1));
+    Assert.assertTrue(StringUtils.isEmptyOrNull(EMPTY_STRING, true));
+    Assert.assertTrue(StringUtils.isEmptyOrNull(NULL_STRING, true));
+    Assert.assertTrue(StringUtils.isEmptyOrNull(BLANK_STRING, true));
+    Assert.assertFalse(StringUtils.isEmptyOrNull(GOOD_STRING_1, true));
   }
 
   @Test
   public void testIsEmptyOrBlankNotNull() {
-    Assert.assertTrue(StringUtils.isEmptyOrBlankNotNull(EMPTY_STRING));
-    Assert.assertFalse(StringUtils.isEmptyOrBlankNotNull(NULL_STRING));
-    Assert.assertTrue(StringUtils.isEmptyOrBlankNotNull(BLANK_STRING));
-    Assert.assertFalse(StringUtils.isEmptyOrBlankNotNull(GOOD_STRING_1));
+    Assert.assertTrue(StringUtils.isEmptyAndNotNull(EMPTY_STRING, true));
+    Assert.assertFalse(StringUtils.isEmptyAndNotNull(NULL_STRING, true));
+    Assert.assertTrue(StringUtils.isEmptyAndNotNull(BLANK_STRING, true));
+    Assert.assertFalse(StringUtils.isEmptyAndNotNull(GOOD_STRING_1, true));
   }
 
   @Test
   public void testNoOneIsEmptyNorBlank() {
-    Assert.assertFalse(StringUtils.noOneIsEmptyNorBlank(EMPTY_STRING, BLANK_STRING, GOOD_STRING_1));
-    Assert.assertFalse(StringUtils.noOneIsEmptyNorBlank(NULL_STRING, EMPTY_STRING, GOOD_STRING_1));
-    Assert
-        .assertTrue(StringUtils.noOneIsEmptyNorBlank(GOOD_STRING_1, GOOD_STRING_2, GOOD_STRING_3));
-    Assert.assertFalse(StringUtils.noOneIsEmptyNorBlank(GOOD_STRING_1, GOOD_STRING_2, GOOD_STRING_3,
-        BLANK_STRING));
+    Assert.assertFalse(
+        StringUtils.noOneIsEmptyOrNull(true, EMPTY_STRING, BLANK_STRING, GOOD_STRING_1));
+    Assert.assertFalse(
+        StringUtils.noOneIsEmptyOrNull(true, NULL_STRING, EMPTY_STRING, GOOD_STRING_1));
+    Assert.assertTrue(
+        StringUtils.noOneIsEmptyOrNull(true, GOOD_STRING_1, GOOD_STRING_2, GOOD_STRING_3));
+    Assert.assertFalse(StringUtils.noOneIsEmptyOrNull(true, GOOD_STRING_1, GOOD_STRING_2,
+        GOOD_STRING_3, BLANK_STRING));
   }
 
   @Test
   public void testNoOneIsEmpty() {
-    Assert.assertFalse(StringUtils.noOneIsEmpty(EMPTY_STRING, BLANK_STRING, GOOD_STRING_1));
-    Assert.assertFalse(StringUtils.noOneIsEmpty(NULL_STRING, EMPTY_STRING, GOOD_STRING_1));
-    Assert.assertTrue(StringUtils.noOneIsEmpty(GOOD_STRING_1, GOOD_STRING_2, GOOD_STRING_3));
+    Assert.assertFalse(
+        StringUtils.noOneIsEmptyOrNull(false, EMPTY_STRING, BLANK_STRING, GOOD_STRING_1));
+    Assert.assertFalse(
+        StringUtils.noOneIsEmptyOrNull(false, NULL_STRING, EMPTY_STRING, GOOD_STRING_1));
     Assert.assertTrue(
-        StringUtils.noOneIsEmpty(GOOD_STRING_1, GOOD_STRING_2, GOOD_STRING_3, BLANK_STRING));
+        StringUtils.noOneIsEmptyOrNull(false, GOOD_STRING_1, GOOD_STRING_2, GOOD_STRING_3));
+    Assert.assertTrue(StringUtils.noOneIsEmptyOrNull(false, GOOD_STRING_1, GOOD_STRING_2,
+        GOOD_STRING_3, BLANK_STRING));
   }
 
   @Test
   public void testIsEmptyBlankOr() {
-    Assert.assertTrue(StringUtils.isEmptyBlankOr(EMPTY_STRING, GOOD_STRING_2, GOOD_STRING_3));
-    Assert.assertFalse(StringUtils.isEmptyBlankOr(NULL_STRING, GOOD_STRING_2, GOOD_STRING_3));
-    Assert.assertFalse(StringUtils.isEmptyBlankOr(GOOD_STRING_1, GOOD_STRING_2, GOOD_STRING_3));
-    Assert.assertTrue(StringUtils.isEmptyBlankOr(BLANK_STRING, GOOD_STRING_2, GOOD_STRING_3));
+    Assert.assertTrue(StringUtils.isOneOf(null, true, GOOD_STRING_2, null));
+    Assert.assertFalse(StringUtils.isOneOf(null, true, GOOD_STRING_2, EMPTY_STRING));
+    Assert.assertFalse(StringUtils.isOneOf(EMPTY_STRING, true, GOOD_STRING_2, GOOD_STRING_2));
+    Assert.assertFalse(StringUtils.isOneOf(EMPTY_STRING, true, GOOD_STRING_2, GOOD_STRING_3));
+    Assert.assertTrue(StringUtils.isOneOf(EMPTY_STRING, true, EMPTY_STRING, GOOD_STRING_3));
+    Assert.assertFalse(StringUtils.isOneOf(NULL_STRING, true, GOOD_STRING_2, GOOD_STRING_3));
+    Assert.assertFalse(StringUtils.isOneOf(GOOD_STRING_1, true, GOOD_STRING_2, GOOD_STRING_3));
+    Assert.assertFalse(StringUtils.isOneOf(BLANK_STRING, true, GOOD_STRING_2, GOOD_STRING_3));
+    Assert.assertTrue(StringUtils.isOneOf(BLANK_STRING, true, EMPTY_STRING, GOOD_STRING_3));
     Assert.assertTrue(
-        StringUtils.isEmptyBlankOr(GOOD_STRING_1, GOOD_STRING_2, GOOD_STRING_1, GOOD_STRING_3));
+        StringUtils.isOneOf(GOOD_STRING_1, true, GOOD_STRING_2, GOOD_STRING_1, GOOD_STRING_3));
   }
 
   @Test
   public void testAppendAll() {
     Assert.assertEquals("test string1test string2test string3", StringUtils
         .appendAll(new StringBuilder(), GOOD_STRING_1, GOOD_STRING_2, GOOD_STRING_3).toString());
+  }
+
+  @Test
+  public void testRrimIfNecessary() {
+    Assert.assertEquals("hi", StringUtils.trimIfNecessary(true, "hi "));
+    Assert.assertNotEquals("hi", StringUtils.trimIfNecessary(false, "hi "));
+    Assert.assertEquals(null, StringUtils.trimIfNecessary(false, null));
+    Assert.assertEquals(null, StringUtils.trimIfNecessary(true, null));
   }
 
   @Test

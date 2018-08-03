@@ -11,7 +11,7 @@ public class ArrayUtils {
   }
 
   /**
-   * Get the position of the object in an array
+   * Get the position of the object in an array.
    * 
    * @param <T> The input type
    * @param array The input array
@@ -44,7 +44,7 @@ public class ArrayUtils {
 
 
   /**
-   * Transform the array into a list, prepending a set of elements
+   * Transform the array into a list, prepending a set of elements.
    * 
    * @param <T> The input type
    * @param array The input array
@@ -63,7 +63,7 @@ public class ArrayUtils {
   }
 
   /**
-   * Transform the array into a list, appending a set of elements
+   * Transform the array into a list, appending a set of elements.
    * 
    * @param <T> The input type
    * @param array The input array
@@ -82,7 +82,7 @@ public class ArrayUtils {
   }
 
   /**
-   * Append a single element to an array
+   * Append a single element to an array.
    * 
    * @param <T> The input type
    * @param array The array
@@ -96,7 +96,7 @@ public class ArrayUtils {
   }
 
   /**
-   * Append a List of elements to an array
+   * Append a List of elements to an array.
    * 
    * @param <T> The input type
    * @param array The array

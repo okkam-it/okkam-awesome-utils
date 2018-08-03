@@ -27,6 +27,14 @@
 				<role>Main Developer</role>
 			</roles>
 		</developer>
+		<developer>
+			<id>flavio.pompermaier</id>
+			<name>Flavio Pompermaier</name>
+			<email>pompermaier@okkam.it</email>
+			<roles>
+				<role>Secondary Developer</role>
+			</roles>
+		</developer>
 	</developers>
 
 	<scm>

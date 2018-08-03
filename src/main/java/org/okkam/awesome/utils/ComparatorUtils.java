@@ -2,10 +2,6 @@ package org.okkam.awesome.utils;
 
 import java.util.Comparator;
 
-/**
- * @author simone
- *
- */
 public class ComparatorUtils {
 
   private ComparatorUtils() {
@@ -13,38 +9,21 @@ public class ComparatorUtils {
   }
 
   /**
-   * Comparator to sort ascending
+   * Comparator to sort ascending (or alphabetically for strings).
    * 
    * @return The comparator
    */
-  public static Comparator<Integer> sortAscending() {
-    return (Integer i1, Integer i2) -> i1.compareTo(i2);
+  public static <T extends Comparable<T>> Comparator<T> sortAscending() {
+    return (T i1, T i2) -> i1.compareTo(i2);
   }
 
   /**
-   * Comparator to sort descending
+   * Comparator to sort descending (or reverse alphabetically for strings).
    * 
    * @return The comparator
    */
-  public static Comparator<Integer> sortDescending() {
-    return (Integer i1, Integer i2) -> i2.compareTo(i1);
+  public static <T extends Comparable<T>> Comparator<T> sortDescending() {
+    return (T i1, T i2) -> i2.compareTo(i1);
   }
 
-  /**
-   * Comparator to sort alphabetically
-   * 
-   * @return The comparator
-   */
-  public static Comparator<String> sortAlphabetically() {
-    return (String s1, String s2) -> s1.compareTo(s2);
-  }
-
-  /**
-   * Comparator to sort reverse alphabetically
-   * 
-   * @return The comparator
-   */
-  public static Comparator<String> sortReverseAlphabetically() {
-    return (String s1, String s2) -> s2.compareTo(s1);
-  }
 }
