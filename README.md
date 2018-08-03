@@ -53,10 +53,6 @@ A library containing some awesome, incredible, unbelievable utils. Very common f
 + String separateArrayBy(T[] array, String separator) -> Generate a String based on array values and separator
 + String separateTreeMapValuesBy(Map<T, String> map, String separator) -> Generate a String based on map values and separator. Pass a TreeMap to guarantee ordering
 ```
-### FlinkMappers:
-```java
-+ JacksonObjectMapper<T> -> Maps input pojo T into a Jackson Object string
-```
 
 ## Usage:
 
