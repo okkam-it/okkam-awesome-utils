@@ -1,3 +1,6 @@
+[![Quality Gate](https://dev.okkam.it/sonar/api/badges/gate?key=org.okkam.utils:okkam-awesome-utils)](https://dev.okkam.it/sonar/dashboard/index/org.okkam.utils:okkam-awesome-utils)
+[![Quality Gate](https://dev.okkam.it/sonar/api/badges/measure?key=org.okkam.utils:okkam-awesome-utils&metric=ncloc)](https://dev.okkam.it/sonar/dashboard/index/org.okkam.utils:okkam-awesome-utils)
+
 # okkam-awesome-utils
 
 A library containing some awesome, incredible, unbelievable utils. Very common functions to avoid lots of duplication and re-coding :) Please report any problem or request.
