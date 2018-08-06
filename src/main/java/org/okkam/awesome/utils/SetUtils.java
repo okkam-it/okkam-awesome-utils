@@ -15,9 +15,9 @@ public class SetUtils {
    * @param <T> The Set and element type
    * @param set The input set
    * @param element The element to add
-   * @return The empty set or the input one
+   * @return The null set or the input one
    */
-  public static <T> Set<T> addIfNotEmpty(Set<T> set, T element) {
+  public static <T> Set<T> addIfNotNull(Set<T> set, T element) {
     if (element != null) {
       set.add(element);
     }
