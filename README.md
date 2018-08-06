@@ -43,6 +43,7 @@ A library containing some awesome, incredible, unbelievable utils. Very common f
 ```java
 + Set<T> addIfNotEmpty(Set<T> set, T element) -> Add element to a set if it is not empty
 + Set<T> createIfNull(Set<T> set) -> create an empty set if the input is null. Return the input set otherwise
++ Set<T> addSafeToHashSet(Set<T> set, T... elements) -> Add elements to the HashSet. Create a new HashSet if the input set is null (initialized with elements).
 ```
 ### StringUtils:
 ```java
