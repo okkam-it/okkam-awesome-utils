@@ -1,3 +1,6 @@
+[![Quality Gate](https://dev.okkam.it/sonar/api/badges/gate?key=org.okkam.utils:okkam-awesome-utils)](https://dev.okkam.it/sonar/dashboard/index/org.okkam.utils:okkam-awesome-utils)
+[![Quality Gate](https://dev.okkam.it/sonar/api/badges/measure?key=org.okkam.utils:okkam-awesome-utils&metric=ncloc)](https://dev.okkam.it/sonar/dashboard/index/org.okkam.utils:okkam-awesome-utils)
+
 # okkam-awesome-utils
 
 A library containing some awesome, incredible, unbelievable utils. Very common functions to avoid lots of duplication and re-coding :) Please report any problem or request.
@@ -36,12 +39,12 @@ A library containing some awesome, incredible, unbelievable utils. Very common f
 ```
 ### MapUtils:
 ```java
-+ List<T> valuesToList(Map<?, T> map) -> Transform the values of a map into a List
-+ Map<T, T> putIfNotExists(Map<T, T> map, T key, T value) -> Put an element to a map only if the key does not exist
++ List<V> valuesToList(Map<?, V> map) -> Transform the values of a map into a List
++ Map<K, V> putIfNotExists(Map<K, V> map, K key, V value) -> Put an element to a map only if the key does not exist
 ```
 ### SetUtils:
 ```java
-+ Set<T> addIfNotEmpty(Set<T> set, T element) -> Add element to a set if it is not empty
++ Set<T> addIfNotNull(Set<T> set, T element) -> Add element to a set if it is not empty
 + Set<T> createIfNull(Set<T> set) -> create an empty set if the input is null. Return the input set otherwise
 + Set<T> addSafeToHashSet(Set<T> set, T... elements) -> Add elements to the HashSet. Create a new HashSet if the input set is null (initialized with elements).
 ```
