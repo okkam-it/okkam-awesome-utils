@@ -22,9 +22,12 @@ public class CollectionUtils {
       return (List<T>) coll;
     }
     final List<T> ret = new ArrayList<>(coll.size());
-    for (T item : coll) {
-      ret.add(item);
-    }
+    org.apache.commons.collections4.CollectionUtils.addAll(ret, coll);
     return ret;
+  }
+
+  public static <T> boolean addAll(List<T> collection, T... elements) {
+    return org.apache.commons.collections4.CollectionUtils.addAll(collection, elements);
+    
   }
 }

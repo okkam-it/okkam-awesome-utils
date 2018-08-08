@@ -18,28 +18,21 @@ public class ArrayUtils {
    * @param obj The element to find
    * @return the position into the array. -1 otherwise.
    */
-  public static <T> int getObjPos(T[] array, T obj) {
-    for (int i = 0; i < array.length; i++) {
-      if (array[i].equals(obj)) {
-        return i;
-      }
-    }
-    return -1;
+  public static <T> int indexOf(T[] array, T valueToFind) {
+    return org.apache.commons.lang3.ArrayUtils.indexOf(array, valueToFind);
   }
 
   /**
-   * Transform the array into a list
+   * Transform the array into a list.
    * 
    * @param <T> The input type
    * @param array The input array
    * @return The list composed by the element of the input array
    */
-  public static <T> List<T> toList(T[] array) {
-    List<T> ret = new ArrayList<>();
-    for (int i = 0; i < array.length; i++) {
-      ret.add(array[i]);
-    }
-    return ret;
+  public static <T> List<T> toList(T[] sourceArray) {
+    final List<T> targetList = new ArrayList<>(sourceArray.length);
+    CollectionUtils.addAll(targetList, sourceArray);
+    return targetList;
   }
 
 
@@ -52,13 +45,9 @@ public class ArrayUtils {
    * @return The list composed by the element of the input array
    */
   public static <T> List<T> toListStartingWith(T[] array, T... elems) {
-    List<T> ret = new ArrayList<>();
-    for (T elem : elems) {
-      ret.add(elem);
-    }
-    for (T arrayElem : array) {
-      ret.add(arrayElem);
-    }
+    final List<T> ret = new ArrayList<>(elems.length);
+    CollectionUtils.addAll(ret, elems);
+    CollectionUtils.addAll(ret, array);
     return ret;
   }
 
@@ -71,13 +60,9 @@ public class ArrayUtils {
    * @return The list composed by the element of the input array
    */
   public static <T> List<T> toListEndingWith(T[] array, T... elems) {
-    List<T> ret = new ArrayList<>();
-    for (T arrayElem : array) {
-      ret.add(arrayElem);
-    }
-    for (T elem : elems) {
-      ret.add(elem);
-    }
+    List<T> ret = new ArrayList<>(elems.length);
+    CollectionUtils.addAll(ret, array);
+    CollectionUtils.addAll(ret, elems);
     return ret;
   }
 
@@ -89,10 +74,8 @@ public class ArrayUtils {
    * @param addElmt The elements to append
    * @return The new array
    */
-  public static <T> T[] addElementToArray(T[] array, T... addElmt) {
-    T[] newArray = Arrays.copyOf(array, array.length + addElmt.length);
-    System.arraycopy(addElmt, 0, newArray, array.length, addElmt.length);
-    return newArray;
+  public static <T> T[] addAll(T[] array, T... elements) {
+    return org.apache.commons.lang3.ArrayUtils.addAll(array, elements);
   }
 
   /**
@@ -103,7 +86,7 @@ public class ArrayUtils {
    * @param addElmts The List of elements to append
    * @return The new array
    */
-  public static <T> T[] addElementsToArray(T[] array, List<T> addElmts) {
+  public static <T> T[] addAll(T[] array, List<T> addElmts) {
     T[] newArray = Arrays.copyOf(array, array.length + addElmts.size());
     System.arraycopy(array, 0, newArray, 0, array.length);
     for (int i = 0; i < addElmts.size(); i++) {

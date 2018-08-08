@@ -32,7 +32,7 @@ public class ListUtils {
    * @param elements The elements to prepend
    * @return The new List
    */
-  public static <T> List<T> prependElementsToList(List<T> list, T... elements) {
+  public static <T> List<T> prependElements(List<T> list, T... elements) {
     int i = 0;
     for (T element : elements) {
       list.add(i++, element);
@@ -74,7 +74,7 @@ public class ListUtils {
   }
 
   /**
-   * Add elemToAdd to the list only if element1 is equals to element2
+   * Add elemToAdd to the list only if element1 is equals to element2.
    * 
    * @param <T> The list and elements type
    * @param <T1> The type of elements to check
@@ -98,10 +98,7 @@ public class ListUtils {
    * @param list The input list
    * @return The old list or the input one
    */
-  public static <T> List<T> createIfNull(List<T> list) {
-    if (list == null) {
-      list = new ArrayList<>();
-    }
-    return list;
+  public static <T> List<T> createArrayListIfNull(List<T> list) {
+    return list == null ? new ArrayList<>() : list;
   }
 }
