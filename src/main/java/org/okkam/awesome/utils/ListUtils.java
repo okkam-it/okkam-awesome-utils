@@ -17,7 +17,7 @@ public class ListUtils {
    * @param elements The elements to append
    * @return The new List
    */
-  public static <T> List<T> appendElementsToList(List<T> list, T... elements) {
+  public static <T> List<T> appendElements(List<T> list, T... elements) {
     for (T element : elements) {
       list.add(element);
     }

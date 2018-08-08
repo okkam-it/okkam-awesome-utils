@@ -7,12 +7,12 @@ A library containing some awesome, incredible, unbelievable utils. Very common f
 
 ### ArrayUtils:
 ```java
-+ int getObjPos(T[] array, T obj) -> return the position of the object into the array. -1 if not exists
-+ List<T> toList(T[] array) -> Build a list based on the array
-+ List<T> toListStartingWith(T[] array, T... elems) -> Build a list based on the array, prepending a set of elements
-+ List<T> toListEndingWith(T[] array, T... elems) -> Build a list based on the array, appending a set of elements
-+ T[] addElementToArray(T[] array, T... addElmt) -> Append a set of elements to an array
-+ T[] addElementsToArray(T[] array, List<T> addElmts) -> Append a list of elements to an array
++ int indexOf(T[] array, T obj) -> return the position of the object into the array. -1 if not exists
++ ArrayList<T> toArrayList(T[] array) -> Build a list based on the array
++ ArrayList<T> toArrayListStartingWith(T[] array, T... elems) -> Build a list based on the array, prepending a set of elements
++ ArrayList<T> toArrayListEndingWith(T[] array, T... elems) -> Build a list based on the array, appending a set of elements
++ T[] addAll(T[] array, T... addElmt) -> Append a set of elements to an array
++ T[] addAll(T[] array, List<T> addElmts) -> Append a list of elements to an array
 ```
 ### CharUtils:
 ```java
@@ -27,15 +27,16 @@ A library containing some awesome, incredible, unbelievable utils. Very common f
 ### CollectionUtils:
 ```java
 + List<T> toList(Collection<T> coll) -> Build a list based on the input collection
++ boolean addAll(List<T> collection, T... elements) -> Append the array elements to the passed list
 ```
 ### ListUtils:
 ```java
-+ List<T> appendElementsToList(List<T> list, T... elements) -> Append elements to a list
-+ List<T> prependElementsToList(List<T> list, T... elements) -> Prepend elements to a list
++ List<T> appendElements(List<T> list, T... elements) -> Append elements to a list
++ List<T> prependElements(List<T> list, T... elements) -> Prepend elements to a list
 + List<T> addIfEquals(List<T> list, T element1, T element2) -> Add element1 to the list if it is equals to element2
 + List<T> addIfEquals(List<T> list, T elemToAdd, T1 element1, T1 element2) -> Add elemToAdd to the list if element1 is equals to element
 + List<T> addIfNotContained(List<T> list, T... elements) -> append elements to the list if they are not already contained
-+ List<T> createIfNull(List<T> list) -> create an empty list if the input is null. Return the input otherwise
++ List<T> createArrayListIfNull(List<T> list) -> create an empty list if the input is null. Return the input otherwise
 ```
 ### MapUtils:
 ```java

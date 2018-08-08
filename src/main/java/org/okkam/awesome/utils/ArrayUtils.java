@@ -23,44 +23,44 @@ public class ArrayUtils {
   }
 
   /**
-   * Transform the array into a list.
+   * Transform the array into an ArrayList.
    * 
    * @param <T> The input type
    * @param array The input array
    * @return The list composed by the element of the input array
    */
-  public static <T> List<T> toList(T[] sourceArray) {
-    final List<T> targetList = new ArrayList<>(sourceArray.length);
+  public static <T> List<T> toArrayList(T[] sourceArray) {
+    final ArrayList<T> targetList = new ArrayList<>(sourceArray.length);
     CollectionUtils.addAll(targetList, sourceArray);
     return targetList;
   }
 
 
   /**
-   * Transform the array into a list, prepending a set of elements.
+   * Transform the array into an ArrayList, prepending a set of elements.
    * 
    * @param <T> The input type
    * @param array The input array
    * @param elems The elements to prepend
    * @return The list composed by the element of the input array
    */
-  public static <T> List<T> toListStartingWith(T[] array, T... elems) {
-    final List<T> ret = new ArrayList<>(elems.length);
+  public static <T> List<T> toArrayListStartingWith(T[] array, T... elems) {
+    final ArrayList<T> ret = new ArrayList<>(elems.length);
     CollectionUtils.addAll(ret, elems);
     CollectionUtils.addAll(ret, array);
     return ret;
   }
 
   /**
-   * Transform the array into a list, appending a set of elements.
+   * Transform the array into an ArrayList, appending a set of elements.
    * 
    * @param <T> The input type
    * @param array The input array
    * @param elems The elements to append
    * @return The list composed by the element of the input array
    */
-  public static <T> List<T> toListEndingWith(T[] array, T... elems) {
-    List<T> ret = new ArrayList<>(elems.length);
+  public static <T> List<T> toArrayListEndingWith(T[] array, T... elems) {
+    final ArrayList<T> ret = new ArrayList<>(elems.length);
     CollectionUtils.addAll(ret, array);
     CollectionUtils.addAll(ret, elems);
     return ret;
