@@ -7,6 +7,11 @@ A library containing some awesome, incredible, unbelievable utils. Very common f
 
 ### OkkamArrays:
 ```java
++ double calculateDistance(double lat1, double lon1, double lat2, double lon2) -> return distance (in Km) between 2 WGS84 points
+```
+
+### OkkamArrays:
+```java
 + int indexOf(T[] array, T obj) -> return the position of the object into the array. -1 if not exists
 + ArrayList<T> toArrayList(T[] array) -> Build a list based on the array
 + ArrayList<T> toArrayListStartingWith(T[] array, T... elems) -> Build a list based on the array, prepending a set of elements
