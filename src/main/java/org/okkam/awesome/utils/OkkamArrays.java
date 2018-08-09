@@ -2,11 +2,12 @@ package org.okkam.awesome.utils;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Collections;
 import java.util.List;
 
-public class ArrayUtils {
+public class OkkamArrays {
 
-  private ArrayUtils() {
+  private OkkamArrays() {
     throw new IllegalStateException("Utility class");
   }
 
@@ -15,7 +16,7 @@ public class ArrayUtils {
    * 
    * @param <T> The input type
    * @param array The input array
-   * @param obj The element to find
+   * @param valueToFind The value to find
    * @return the position into the array. -1 otherwise.
    */
   public static <T> int indexOf(T[] array, T valueToFind) {
@@ -23,15 +24,15 @@ public class ArrayUtils {
   }
 
   /**
-   * Transform the array into an ArrayList.
+   * Transform the input array into an ArrayList.
    * 
    * @param <T> The input type
-   * @param array The input array
+   * @param sourceArray The input array
    * @return The list composed by the element of the input array
    */
   public static <T> List<T> toArrayList(T[] sourceArray) {
     final ArrayList<T> targetList = new ArrayList<>(sourceArray.length);
-    CollectionUtils.addAll(targetList, sourceArray);
+    Collections.addAll(targetList, sourceArray);
     return targetList;
   }
 
@@ -44,10 +45,11 @@ public class ArrayUtils {
    * @param elems The elements to prepend
    * @return The list composed by the element of the input array
    */
+  @SafeVarargs
   public static <T> List<T> toArrayListStartingWith(T[] array, T... elems) {
     final ArrayList<T> ret = new ArrayList<>(elems.length);
-    CollectionUtils.addAll(ret, elems);
-    CollectionUtils.addAll(ret, array);
+    Collections.addAll(ret, elems);
+    Collections.addAll(ret, array);
     return ret;
   }
 
@@ -56,22 +58,22 @@ public class ArrayUtils {
    * 
    * @param <T> The input type
    * @param array The input array
-   * @param elems The elements to append
+   * @param elements The elements to append
    * @return The list composed by the element of the input array
    */
-  public static <T> List<T> toArrayListEndingWith(T[] array, T... elems) {
-    final ArrayList<T> ret = new ArrayList<>(elems.length);
-    CollectionUtils.addAll(ret, array);
-    CollectionUtils.addAll(ret, elems);
+  public static <T> List<T> toArrayListEndingWith(T[] array, T... elements) {
+    final ArrayList<T> ret = new ArrayList<>(elements.length);
+    Collections.addAll(ret, array);
+    Collections.addAll(ret, elements);
     return ret;
   }
 
   /**
-   * Append a single element to an array.
+   * Append elements to an array.
    * 
    * @param <T> The input type
    * @param array The array
-   * @param addElmt The elements to append
+   * @param elements The elements to append
    * @return The new array
    */
   public static <T> T[] addAll(T[] array, T... elements) {

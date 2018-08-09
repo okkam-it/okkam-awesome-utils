@@ -14,12 +14,12 @@ public class ListUtilsTest {
 
   @Test
   public void testPrependElementsToListOk() {
-    ListUtils.prependElements(abcLinked, "d");
-    ListUtils.prependElements(abcArray, "d");
+    OkkamLists.prependElements(abcLinked, "d");
+    OkkamLists.prependElements(abcArray, "d");
   }
 
   @Test(expected = UnsupportedOperationException.class)
   public void testPrependElementsToListKo() {
-    ListUtils.prependElements(abc, "d");
+    OkkamLists.prependElements(abc, "d");
   }
 }

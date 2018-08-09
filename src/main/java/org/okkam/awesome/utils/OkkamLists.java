@@ -1,11 +1,12 @@
 package org.okkam.awesome.utils;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
-public class ListUtils {
+public class OkkamLists {
 
-  private ListUtils() {
+  private OkkamLists() {
     throw new IllegalStateException("Utility class");
   }
 
@@ -17,10 +18,9 @@ public class ListUtils {
    * @param elements The elements to append
    * @return The new List
    */
+  @SafeVarargs
   public static <T> List<T> appendElements(List<T> list, T... elements) {
-    for (T element : elements) {
-      list.add(element);
-    }
+    Collections.addAll(list, elements);
     return list;
   }
 
@@ -32,6 +32,7 @@ public class ListUtils {
    * @param elements The elements to prepend
    * @return The new List
    */
+  @SafeVarargs
   public static <T> List<T> prependElements(List<T> list, T... elements) {
     int i = 0;
     for (T element : elements) {
@@ -48,6 +49,7 @@ public class ListUtils {
    * @param elements The elements to add
    * @return The new List
    */
+  @SafeVarargs
   public static <T> List<T> addIfNotContained(List<T> list, T... elements) {
     for (T element : elements) {
       if (!list.contains(element)) {

@@ -1,11 +1,12 @@
 package org.okkam.awesome.utils;
 
+import java.util.Collections;
 import java.util.HashSet;
 import java.util.Set;
 
-public class SetUtils {
+public class OkkamSets {
 
-  private SetUtils() {
+  private OkkamSets() {
     throw new IllegalStateException("Utility class");
   }
 
@@ -47,11 +48,10 @@ public class SetUtils {
    * @param elements The elements to add
    * @return The set initialized with elements (if empty) or the input one adding elements.
    */
+  @SafeVarargs
   public static <T> Set<T> addSafeToHashSet(Set<T> set, T... elements) {
     set = createHashSetIfNull(set);
-    for (T element : elements) {
-      set.add(element);
-    }
+    Collections.addAll(set, elements);
     return set;
   }
 }

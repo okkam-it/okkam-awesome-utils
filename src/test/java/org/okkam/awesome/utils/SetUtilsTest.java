@@ -20,18 +20,28 @@ public class SetUtilsTest {
 
   @Test
   public void testCreateHashSetIfNull() {
-    Assert.assertEquals(EMPTY, SetUtils.createHashSetIfNull(NULL));
-    Assert.assertEquals(EMPTY, SetUtils.createHashSetIfNull(EMPTY));
-    Assert.assertNotSame(EMPTY, SetUtils.createHashSetIfNull(NOT_EMPTY));
+    Assert.assertEquals(EMPTY, OkkamSets.createHashSetIfNull(NULL));
+    Assert.assertEquals(EMPTY, OkkamSets.createHashSetIfNull(EMPTY));
+    Assert.assertNotSame(EMPTY, OkkamSets.createHashSetIfNull(NOT_EMPTY));
 
-    Assert.assertEquals(NOT_EMPTY, SetUtils.createHashSetIfNull(NOT_EMPTY));
+    Assert.assertEquals(NOT_EMPTY, OkkamSets.createHashSetIfNull(NOT_EMPTY));
   }
 
   @Test
   public void testAddSafeToHashSet() {
-    Assert.assertEquals(NOT_EMPTY_2, SetUtils.addSafeToHashSet(NULL_2, "a", "b", "c"));
-    Assert.assertEquals(NOT_EMPTY_2, SetUtils.addSafeToHashSet(EMPTY_2, "a", "b", "c"));
-    Assert.assertEquals(NOT_EMPTY_2, SetUtils.addSafeToHashSet(NOT_EMPTY_2, "a", "b", "c"));
+    Assert.assertEquals(NOT_EMPTY_2, OkkamSets.addSafeToHashSet(NULL_2, "a", "b", "c"));
+    Assert.assertEquals(NOT_EMPTY_2, OkkamSets.addSafeToHashSet(EMPTY_2, "a", "b", "c"));
+    Assert.assertEquals(NOT_EMPTY_2, OkkamSets.addSafeToHashSet(NOT_EMPTY_2, "a", "b", "c"));
+  }
+
+  @Test
+  public void testVarArgs() {
+    Set<Integer> result = addSafeToHashSet(2, 1);
+    Assert.assertNotNull(result);
+  }
+
+  static <T> Set<T> addSafeToHashSet(T a, T b) {
+    return OkkamSets.addSafeToHashSet(null, a, b);
   }
 
 }

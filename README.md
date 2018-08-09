@@ -27,7 +27,6 @@ A library containing some awesome, incredible, unbelievable utils. Very common f
 ### CollectionUtils:
 ```java
 + List<T> toList(Collection<T> coll) -> Build a list based on the input collection
-+ boolean addAll(List<T> collection, T... elements) -> Append the array elements to the passed list
 ```
 ### ListUtils:
 ```java
