@@ -74,7 +74,7 @@ Last stable version:
 		<dependency>
 			<groupId>org.okkam.utils</groupId>
 			<artifactId>okkam-awesome-utils</artifactId>
-			<version>1.0.0</version>
+			<version>1.0.1</version>
 		</dependency>
 	</dependencies>
 ```
@@ -85,7 +85,7 @@ Snapshot version:
 		<dependency>
 			<groupId>org.okkam.utils</groupId>
 			<artifactId>okkam-awesome-utils</artifactId>
-			<version>1.0.1-SNAPSHOT</version>
+			<version>1.0.2-SNAPSHOT</version>
 		</dependency>
 	</dependencies>
 ```
