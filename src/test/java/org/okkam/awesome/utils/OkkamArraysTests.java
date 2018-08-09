@@ -8,9 +8,9 @@ import org.junit.Test;
 // NOSONAR
 public class OkkamArraysTests {
 
-  protected static final Character[] CHAR_ARRAY = { 'a', 'b', 'c' };
-  protected static final Integer[] INT_ARRAY = { 0, 1, 2, 3, 4, 5, 6, 7 };
-  protected static final String[] STRING_ARRAY = { "abc", "cde", "efg", "ghi" };
+  private static final Character[] CHAR_ARRAY = { 'a', 'b', 'c' };
+  private static final Integer[] INT_ARRAY = { 0, 1, 2, 3, 4, 5, 6, 7 };
+  private static final String[] STRING_ARRAY = { "abc", "cde", "efg", "ghi" };
 
   @Test
   public void testindexOf() {
