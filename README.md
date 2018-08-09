@@ -5,9 +5,9 @@
 
 A library containing some awesome, incredible, unbelievable utils. Very common functions to avoid lots of duplication and re-coding :) Please report any problem or request.
 
-### OkkamArrays:
+### OkkamGeoUtils:
 ```java
-+ double calculateDistance(double lat1, double lon1, double lat2, double lon2) -> return distance (in Km) between 2 WGS84 points
++ double calculateDistance(double lat1, double lon1, double lat2, double lon2) -> return the distance (in meters) between 2 WGS84 points
 ```
 
 ### OkkamArrays:
