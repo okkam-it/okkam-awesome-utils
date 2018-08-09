@@ -4,7 +4,7 @@ import org.junit.Assert;
 import org.junit.Test;
 import org.okkam.awesome.utils.OkkamStrings;
 
-public class StringUtilsTests {
+public class OkkamStringsTests {
 
   public static final String NULL_STRING = null;
   public static final String EMPTY_STRING = "";

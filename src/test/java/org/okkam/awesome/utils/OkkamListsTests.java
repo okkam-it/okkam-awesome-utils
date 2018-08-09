@@ -7,7 +7,8 @@ import java.util.List;
 
 import org.junit.Test;
 
-public class ListUtilsTest {
+public class OkkamListsTests {
+  
   protected static final List<String> abc = Arrays.asList("a", "b", "c");
   protected static final List<String> abcLinked = new LinkedList<>(abc);
   protected static final List<String> abcArray = new ArrayList<>(abc);

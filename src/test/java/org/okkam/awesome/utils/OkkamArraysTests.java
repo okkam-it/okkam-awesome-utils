@@ -6,7 +6,7 @@ import org.junit.Assert;
 import org.junit.Test;
 
 // NOSONAR
-public class ArrayUtilsTests {
+public class OkkamArraysTests {
 
   protected static final Character[] CHAR_ARRAY = { 'a', 'b', 'c' };
   protected static final Integer[] INT_ARRAY = { 0, 1, 2, 3, 4, 5, 6, 7 };

@@ -1,8 +1,8 @@
 package org.okkam.awesome.utils;
 
-public class CharUtils {
+public class OkkamChars {
 
-  private CharUtils() {
+  private OkkamChars() {
     throw new IllegalStateException("Utility class");
   }
 

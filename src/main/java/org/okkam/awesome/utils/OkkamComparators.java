@@ -2,9 +2,9 @@ package org.okkam.awesome.utils;
 
 import java.util.Comparator;
 
-public class ComparatorUtils {
+public class OkkamComparators {
 
-  private ComparatorUtils() {
+  private OkkamComparators() {
     throw new IllegalStateException("Utility class");
   }
 

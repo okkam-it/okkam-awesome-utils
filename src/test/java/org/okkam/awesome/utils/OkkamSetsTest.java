@@ -8,7 +8,8 @@ import java.util.Set;
 import org.junit.Assert;
 import org.junit.Test;
 
-public class SetUtilsTest {
+public class OkkamSetsTest {
+
   protected static final List<String> ABC = Arrays.asList("a", "b", "c");
   protected static final Set<String> NOT_EMPTY = new HashSet<>(ABC);
   protected static final Set<String> EMPTY = new HashSet<>();

@@ -60,19 +60,20 @@ public class OkkamLists {
   }
 
   /**
-   * Add element1 to the list only if it is equals to element2.
+   * Add elemToAdd to the list only if it is equals to elemToCompare.
    * 
    * @param <T> The list and elements type
    * @param list The list
-   * @param element1 The first element
-   * @param element2 The second element
-   * @return The input list
+   * @param elemToAdd The element to add
+   * @param elemToCompare The second element
+   * @return true if the elemToAdd was added, false otherwise
    */
-  public static <T> List<T> addIfEquals(List<T> list, T element1, T element2) {
-    if (element1.equals(element2)) {
-      list.add(element1);
+  public static <T> boolean addIfEquals(List<T> list, T elemToAdd, T elemToCompare) {
+    if (elemToAdd.equals(elemToCompare)) {
+      list.add(elemToAdd);
+      return true;
     }
-    return list;
+    return false;
   }
 
   /**
@@ -84,13 +85,14 @@ public class OkkamLists {
    * @param elemToAdd The element to add
    * @param element1 The first element
    * @param element2 The second element
-   * @return The input list
+   * @return true if the elemToAdd was added, false otherwise
    */
-  public static <T, T1> List<T> addIfEquals(List<T> list, T elemToAdd, T1 element1, T1 element2) {
+  public static <T, T1> boolean addIfEquals(List<T> list, T elemToAdd, T1 element1, T1 element2) {
     if (element1.equals(element2)) {
       list.add(elemToAdd);
+      return true;
     }
-    return list;
+    return false;
   }
 
   /**
