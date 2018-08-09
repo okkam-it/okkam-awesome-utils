@@ -4,9 +4,9 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 
-public class CollectionUtils {
+public class OkkamCollections {
 
-  private CollectionUtils() {
+  private OkkamCollections() {
     throw new IllegalStateException("Utility class");
   }
 
@@ -22,9 +22,8 @@ public class CollectionUtils {
       return (List<T>) coll;
     }
     final List<T> ret = new ArrayList<>(coll.size());
-    for (T item : coll) {
-      ret.add(item);
-    }
+    org.apache.commons.collections4.CollectionUtils.addAll(ret, coll);
     return ret;
   }
+
 }

@@ -5,50 +5,50 @@
 
 A library containing some awesome, incredible, unbelievable utils. Very common functions to avoid lots of duplication and re-coding :) Please report any problem or request.
 
-### ArrayUtils:
+### OkkamArrays:
 ```java
-+ int getObjPos(T[] array, T obj) -> return the position of the object into the array. -1 if not exists
-+ List<T> toList(T[] array) -> Build a list based on the array
-+ List<T> toListStartingWith(T[] array, T... elems) -> Build a list based on the array, prepending a set of elements
-+ List<T> toListEndingWith(T[] array, T... elems) -> Build a list based on the array, appending a set of elements
-+ T[] addElementToArray(T[] array, T... addElmt) -> Append a set of elements to an array
-+ T[] addElementsToArray(T[] array, List<T> addElmts) -> Append a list of elements to an array
++ int indexOf(T[] array, T obj) -> return the position of the object into the array. -1 if not exists
++ ArrayList<T> toArrayList(T[] array) -> Build a list based on the array
++ ArrayList<T> toArrayListStartingWith(T[] array, T... elems) -> Build a list based on the array, prepending a set of elements
++ ArrayList<T> toArrayListEndingWith(T[] array, T... elems) -> Build a list based on the array, appending a set of elements
++ T[] addAll(T[] array, T... addElmt) -> Append a set of elements to an array
++ T[] addAll(T[] array, List<T> addElmts) -> Append a list of elements to an array
 ```
-### CharUtils:
+### OkkamChars:
 ```java
 + boolean isBetween(char start, char end, char toCheck) -> Returns true if the char is between the range
 + boolean isStrictBetween(char start, char end, char toCheck) -> Returns true if the char is strict between the range
 ```
-### ComparatorUtils:
+### OkkamComparators:
 ```java
 + Comparator<T> sortAscending() -> Comparator to sort ascending (or alphabetically for strings)
 + Comparator<T> sortDescending() -> Comparator to sort descending (or reverse alphabetically for strings)
 ```
-### CollectionUtils:
+### OkkamCollections:
 ```java
 + List<T> toList(Collection<T> coll) -> Build a list based on the input collection
 ```
-### ListUtils:
+### OkkamLists:
 ```java
-+ List<T> appendElementsToList(List<T> list, T... elements) -> Append elements to a list
-+ List<T> prependElementsToList(List<T> list, T... elements) -> Prepend elements to a list
-+ List<T> addIfEquals(List<T> list, T element1, T element2) -> Add element1 to the list if it is equals to element2
-+ List<T> addIfEquals(List<T> list, T elemToAdd, T1 element1, T1 element2) -> Add elemToAdd to the list if element1 is equals to element
++ List<T> appendElements(List<T> list, T... elements) -> Append elements to a list
++ List<T> prependElements(List<T> list, T... elements) -> Prepend elements to a list
++ boolean addIfEquals(List<T> list, T elemToAdd, T elemToCompare) -> Add elemToAdd to the list if it is equals to elemToCompare
++ boolean addIfEquals(List<T> list, T elemToAdd, T1 element1, T1 element2) -> Add elemToAdd to the list if element1 is equals to element2
 + List<T> addIfNotContained(List<T> list, T... elements) -> append elements to the list if they are not already contained
-+ List<T> createIfNull(List<T> list) -> create an empty list if the input is null. Return the input otherwise
++ List<T> createArrayListIfNull(List<T> list) -> create an empty list if the input is null. Return the input otherwise
 ```
-### MapUtils:
+### OkkamMaps:
 ```java
 + List<V> valuesToList(Map<?, V> map) -> Transform the values of a map into a List
 + Map<K, V> putIfNotExists(Map<K, V> map, K key, V value) -> Put an element to a map only if the key does not exist
 ```
-### SetUtils:
+### OkkamSets:
 ```java
 + Set<T> addIfNotNull(Set<T> set, T element) -> Add element to a set if it is not empty
 + Set<T> createIfNull(Set<T> set) -> create an empty set if the input is null. Return the input set otherwise
 + Set<T> addSafeToHashSet(Set<T> set, T... elements) -> Add elements to the HashSet. Create a new HashSet if the input set is null (initialized with elements).
 ```
-### StringUtils:
+### OkkamStrings:
 ```java
 + boolean isEmptyOrNull(String string, boolean trim)) -> Returns true if the string is null or empty
 + boolean isEmptyAndNotNull(String string, boolean trim)) -> Check if the string is empty and not null

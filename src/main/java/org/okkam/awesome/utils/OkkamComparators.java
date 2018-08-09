@@ -2,15 +2,16 @@ package org.okkam.awesome.utils;
 
 import java.util.Comparator;
 
-public class ComparatorUtils {
+public class OkkamComparators {
 
-  private ComparatorUtils() {
+  private OkkamComparators() {
     throw new IllegalStateException("Utility class");
   }
 
   /**
    * Comparator to sort ascending (or alphabetically for strings).
    * 
+   * @param <T> the type of the generic
    * @return The comparator
    */
   public static <T extends Comparable<T>> Comparator<T> sortAscending() {
@@ -20,6 +21,7 @@ public class ComparatorUtils {
   /**
    * Comparator to sort descending (or reverse alphabetically for strings).
    * 
+   * @param <T> the type of the generic
    * @return The comparator
    */
   public static <T extends Comparable<T>> Comparator<T> sortDescending() {

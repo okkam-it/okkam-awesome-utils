@@ -1,11 +1,12 @@
 package org.okkam.awesome.utils;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
-public class ListUtils {
+public class OkkamLists {
 
-  private ListUtils() {
+  private OkkamLists() {
     throw new IllegalStateException("Utility class");
   }
 
@@ -17,10 +18,9 @@ public class ListUtils {
    * @param elements The elements to append
    * @return The new List
    */
-  public static <T> List<T> appendElementsToList(List<T> list, T... elements) {
-    for (T element : elements) {
-      list.add(element);
-    }
+  @SafeVarargs
+  public static <T> List<T> appendElements(List<T> list, T... elements) {
+    Collections.addAll(list, elements);
     return list;
   }
 
@@ -32,7 +32,8 @@ public class ListUtils {
    * @param elements The elements to prepend
    * @return The new List
    */
-  public static <T> List<T> prependElementsToList(List<T> list, T... elements) {
+  @SafeVarargs
+  public static <T> List<T> prependElements(List<T> list, T... elements) {
     int i = 0;
     for (T element : elements) {
       list.add(i++, element);
@@ -48,6 +49,7 @@ public class ListUtils {
    * @param elements The elements to add
    * @return The new List
    */
+  @SafeVarargs
   public static <T> List<T> addIfNotContained(List<T> list, T... elements) {
     for (T element : elements) {
       if (!list.contains(element)) {
@@ -58,23 +60,24 @@ public class ListUtils {
   }
 
   /**
-   * Add element1 to the list only if it is equals to element2.
+   * Add elemToAdd to the list only if it is equals to elemToCompare.
    * 
    * @param <T> The list and elements type
    * @param list The list
-   * @param element1 The first element
-   * @param element2 The second element
-   * @return The input list
+   * @param elemToAdd The element to add
+   * @param elemToCompare The second element
+   * @return true if the elemToAdd was added, false otherwise
    */
-  public static <T> List<T> addIfEquals(List<T> list, T element1, T element2) {
-    if (element1.equals(element2)) {
-      list.add(element1);
+  public static <T> boolean addIfEquals(List<T> list, T elemToAdd, T elemToCompare) {
+    if (elemToAdd.equals(elemToCompare)) {
+      list.add(elemToAdd);
+      return true;
     }
-    return list;
+    return false;
   }
 
   /**
-   * Add elemToAdd to the list only if element1 is equals to element2
+   * Add elemToAdd to the list only if element1 is equals to element2.
    * 
    * @param <T> The list and elements type
    * @param <T1> The type of elements to check
@@ -82,13 +85,14 @@ public class ListUtils {
    * @param elemToAdd The element to add
    * @param element1 The first element
    * @param element2 The second element
-   * @return The input list
+   * @return true if the elemToAdd was added, false otherwise
    */
-  public static <T, T1> List<T> addIfEquals(List<T> list, T elemToAdd, T1 element1, T1 element2) {
+  public static <T, T1> boolean addIfEquals(List<T> list, T elemToAdd, T1 element1, T1 element2) {
     if (element1.equals(element2)) {
       list.add(elemToAdd);
+      return true;
     }
-    return list;
+    return false;
   }
 
   /**
@@ -98,10 +102,7 @@ public class ListUtils {
    * @param list The input list
    * @return The old list or the input one
    */
-  public static <T> List<T> createIfNull(List<T> list) {
-    if (list == null) {
-      list = new ArrayList<>();
-    }
-    return list;
+  public static <T> List<T> createArrayListIfNull(List<T> list) {
+    return list == null ? new ArrayList<>() : list;
   }
 }

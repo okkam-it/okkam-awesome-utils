@@ -49,7 +49,7 @@
 			<url>http://www.gnu.org/licenses/lgpl.txt</url>
 		</license>
 	</licenses>
-	
+
 	<properties>
 		<java.version>1.8</java.version>
 		<junit.version>4.12</junit.version>
@@ -61,6 +61,16 @@
 			<artifactId>junit</artifactId>
 			<version>${junit.version}</version>
 			<scope>test</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.commons</groupId>
+			<artifactId>commons-lang3</artifactId>
+			<version>3.7</version>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.commons</groupId>
+			<artifactId>commons-collections4</artifactId>
+			<version>4.2</version>
 		</dependency>
 	</dependencies>
 
@@ -75,6 +85,52 @@
 					<target>${java.version}</target>
 				</configuration>
 			</plugin>
+
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-shade-plugin</artifactId>
+				<version>3.0.0</version>
+				<executions>
+					<execution>
+						<phase>package</phase>
+						<goals>
+							<goal>shade</goal>
+						</goals>
+						<configuration>
+							<createSourcesJar>true</createSourcesJar>
+							<shadeSourcesContent>true</shadeSourcesContent>
+							<createDependencyReducedPom>true</createDependencyReducedPom>
+							<dependencyReducedPomLocation>${project.basedir}/target/dependency-reduced-pom.xml</dependencyReducedPomLocation>
+							<promoteTransitiveDependencies>true</promoteTransitiveDependencies>
+							<artifactSet>
+								<includes>
+									<include>org.apache.commons:*</include>
+								</includes>
+							</artifactSet>
+							<relocations>
+								<relocation>
+									<pattern>org.apache.commons</pattern>
+									<shadedPattern>org.okkam.awesome.apache.commons</shadedPattern>
+								</relocation>
+							</relocations>
+							<transformers>
+								<!-- The service transformer is needed to merge META-INF/services 
+									files -->
+								<transformer
+									implementation="org.apache.maven.plugins.shade.resource.ServicesResourceTransformer" />
+								<!-- The ApacheNoticeResourceTransformer collects and aggregates 
+									NOTICE files -->
+								<transformer
+									implementation="org.apache.maven.plugins.shade.resource.ApacheNoticeResourceTransformer" />
+								<!-- The ApacheLicenseResourceTransformer prevents duplicate Apache 
+									Licenses -->
+								<transformer
+									implementation="org.apache.maven.plugins.shade.resource.ApacheLicenseResourceTransformer" />
+							</transformers>
+						</configuration>
+					</execution>
+				</executions>
+			</plugin>
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-source-plugin</artifactId>
@@ -82,6 +138,7 @@
 				<executions>
 					<execution>
 						<id>attach-sources</id>
+						<phase>compile</phase>
 						<goals>
 							<goal>jar-no-fork</goal>
 						</goals>
@@ -129,6 +186,37 @@
 					<nexusUrl>https://oss.sonatype.org/</nexusUrl>
 					<stagingProfileId>8683ea0aef40d5</stagingProfileId>
 					<autoReleaseAfterClose>true</autoReleaseAfterClose>
+				</configuration>
+			</plugin>
+
+
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-checkstyle-plugin</artifactId>
+				<version>3.0.0</version>
+				<dependencies>
+					<dependency>
+						<groupId>com.puppycrawl.tools</groupId>
+						<artifactId>checkstyle</artifactId>
+						<version>8.6</version>
+					</dependency>
+				</dependencies>
+				<executions>
+					<execution>
+						<id>validate</id>
+						<phase>validate</phase>
+						<goals>
+							<goal>check</goal>
+						</goals>
+					</execution>
+				</executions>
+				<configuration>
+					<configLocation>google_checks.xml</configLocation>
+					<encoding>UTF-8</encoding>
+					<consoleOutput>true</consoleOutput>
+					<failsOnError>true</failsOnError>
+					<linkXRef>false</linkXRef>
+					<violationSeverity>warning</violationSeverity>
 				</configuration>
 			</plugin>
 		</plugins>

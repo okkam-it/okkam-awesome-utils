@@ -3,9 +3,9 @@ package org.okkam.awesome.utils;
 import java.util.List;
 import java.util.Map;
 
-public class MapUtils {
+public class OkkamMaps {
 
-  private MapUtils() {
+  private OkkamMaps() {
     throw new IllegalStateException("Utility class");
   }
 
@@ -17,7 +17,7 @@ public class MapUtils {
    * @return The List composed by the value set of the map
    */
   public static <V> List<V> valuesToList(Map<?, V> map) {
-    return CollectionUtils.toList(map.values());
+    return OkkamCollections.toList(map.values());
   }
 
   /**

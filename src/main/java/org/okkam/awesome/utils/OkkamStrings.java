@@ -3,9 +3,9 @@ package org.okkam.awesome.utils;
 import java.util.Map;
 import java.util.Map.Entry;
 
-public class StringUtils {
+public class OkkamStrings {
 
-  private StringUtils() {
+  private OkkamStrings() {
     throw new IllegalStateException("Utility class");
   }
 
