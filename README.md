@@ -5,6 +5,11 @@
 
 A library containing some awesome, incredible, unbelievable utils. Very common functions to avoid lots of duplication and re-coding :) Please report any problem or request.
 
+### OkkamGeoUtils:
+```java
++ double calculateDistance(double lat1, double lon1, double lat2, double lon2) -> return the distance (in meters) between 2 WGS84 points
+```
+
 ### OkkamArrays:
 ```java
 + int indexOf(T[] array, T obj) -> return the position of the object into the array. -1 if not exists
@@ -69,7 +74,7 @@ Last stable version:
 		<dependency>
 			<groupId>org.okkam.utils</groupId>
 			<artifactId>okkam-awesome-utils</artifactId>
-			<version>1.0.0</version>
+			<version>1.0.1</version>
 		</dependency>
 	</dependencies>
 ```
@@ -80,7 +85,7 @@ Snapshot version:
 		<dependency>
 			<groupId>org.okkam.utils</groupId>
 			<artifactId>okkam-awesome-utils</artifactId>
-			<version>1.0.1-SNAPSHOT</version>
+			<version>1.0.2-SNAPSHOT</version>
 		</dependency>
 	</dependencies>
 ```
