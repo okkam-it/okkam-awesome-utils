@@ -5,11 +5,6 @@
 
 A library containing some awesome, incredible, unbelievable utils. Very common functions to avoid lots of duplication and re-coding :) Please report any problem or request.
 
-### OkkamGeoUtils:
-```java
-+ double calculateDistance(double lat1, double lon1, double lat2, double lon2) -> return the distance (in meters) between 2 WGS84 points
-```
-
 ### OkkamArrays:
 ```java
 + int indexOf(T[] array, T obj) -> return the position of the object into the array. -1 if not exists
@@ -24,14 +19,18 @@ A library containing some awesome, incredible, unbelievable utils. Very common f
 + boolean isBetween(char start, char end, char toCheck) -> Returns true if the char is between the range
 + boolean isStrictBetween(char start, char end, char toCheck) -> Returns true if the char is strict between the range
 ```
+### OkkamCollections:
+```java
++ List<T> toList(Collection<T> coll) -> Build a list based on the input collection
+```
 ### OkkamComparators:
 ```java
 + Comparator<T> sortAscending() -> Comparator to sort ascending (or alphabetically for strings)
 + Comparator<T> sortDescending() -> Comparator to sort descending (or reverse alphabetically for strings)
 ```
-### OkkamCollections:
+### OkkamGeoUtils:
 ```java
-+ List<T> toList(Collection<T> coll) -> Build a list based on the input collection
++ double calculateDistance(double lat1, double lon1, double lat2, double lon2) -> return the distance (in meters) between 2 WGS84 points
 ```
 ### OkkamLists:
 ```java
@@ -63,6 +62,7 @@ A library containing some awesome, incredible, unbelievable utils. Very common f
 + StringBuilder appendAll(StringBuilder sb, T... elements) -> Append all elements to the string builder
 + String separateArrayBy(T[] array, String separator) -> Generate a String based on array values and separator
 + String separateTreeMapValuesBy(Map<T, String> map, String separator) -> Generate a String based on map values and separator. Pass a TreeMap to guarantee ordering
++ String[] splitByChar(String stringToSplit, char charToSplit) -> Split the string by char. Trailing empty array cells will not be removed.
 ```
 
 ## Usage:
