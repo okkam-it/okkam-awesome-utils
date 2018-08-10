@@ -1,5 +1,7 @@
 package org.okkam.awesome.utils;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Map;
 import java.util.Map.Entry;
 
@@ -141,5 +143,26 @@ public class OkkamStrings {
     }
 
     return sb.toString();
+  }
+
+  /**
+   * Split a string by a char.
+   * 
+   * @param stringToSplit The string to be split
+   * @param charToSplit The char used to split the string
+   * @return The string array
+   */
+  public static String[] splitByChar(String stringToSplit, char charToSplit) {
+    char[] charArray = stringToSplit.toCharArray();
+    List<String> ret = new ArrayList<>();
+    int start = 0;
+    for (int i = 0; i < charArray.length; i++) {
+      if (charArray[i] == charToSplit) {
+        ret.add(new String(charArray, start, i - start));
+        start = i + 1;
+      }
+    }
+    ret.add(new String(charArray, start, charArray.length - start));
+    return ret.toArray(new String[ret.size()]);
   }
 }

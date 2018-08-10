@@ -83,7 +83,7 @@ public class OkkamStringsTests {
   }
 
   @Test
-  public void testRrimIfNecessary() {
+  public void testTrimIfNecessary() {
     Assert.assertEquals("hi", OkkamStrings.trimIfNecessary(true, "hi "));
     Assert.assertNotEquals("hi", OkkamStrings.trimIfNecessary(false, "hi "));
     Assert.assertEquals(null, OkkamStrings.trimIfNecessary(false, null));
@@ -94,6 +94,20 @@ public class OkkamStringsTests {
   public void testSeparateArrayBy() {
     Assert.assertEquals("a|b|c", OkkamStrings.separateArrayBy(new String[] { "a", "b", "c" }, "|"));
     Assert.assertEquals("1|2|3", OkkamStrings.separateArrayBy(new Integer[] { 1, 2, 3 }, "|"));
+  }
+
+  @Test
+  public void testSplitByChar() {
+    Assert.assertArrayEquals("  a  b  c".split(" "), OkkamStrings.splitByChar("  a  b  c", ' '));
+    Assert.assertArrayEquals("a,b,c,d,e,f,g,h,i".split(","),
+        OkkamStrings.splitByChar("a,b,c,d,e,f,g,h,i", ','));
+
+    Assert.assertEquals("noSpaces".split(" ").length,
+        OkkamStrings.splitByChar("noSpaces", ' ').length);
+    Assert.assertNotEquals("a,b,c,d,e,f,g,h,i,,".split(",").length,
+        OkkamStrings.splitByChar("a,b,c,d,e,f,g,h,i,,", ',').length);
+    Assert.assertArrayEquals(new String[] { "a", "b", "c", "d", "e", "f", "g", "h", "i", "", "" },
+        OkkamStrings.splitByChar("a,b,c,d,e,f,g,h,i,,", ','));
   }
 
 }
