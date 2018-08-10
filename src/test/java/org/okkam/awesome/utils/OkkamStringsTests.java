@@ -12,6 +12,10 @@ public class OkkamStringsTests {
   public static final String GOOD_STRING_1 = "test string1";
   public static final String GOOD_STRING_2 = "test string2";
   public static final String GOOD_STRING_3 = "test string3";
+  public static final String STRING_WITHOUT_SPACES = "stringwithnospaces";
+  public static final String STRING_TO_SPLIT_1 = "  a  b  c";
+  public static final String STRING_TO_SPLIT_2 = "a,b,c,d,e,f,g,h,i";
+  public static final String STRING_TO_SPLIT_3 = "a,b,c,d,e,f,g,h,i,,";
 
   @Test
   public void testIsEmptyOrNull() {
@@ -98,16 +102,17 @@ public class OkkamStringsTests {
 
   @Test
   public void testSplitByChar() {
-    Assert.assertArrayEquals("  a  b  c".split(" "), OkkamStrings.splitByChar("  a  b  c", ' '));
-    Assert.assertArrayEquals("a,b,c,d,e,f,g,h,i".split(","),
-        OkkamStrings.splitByChar("a,b,c,d,e,f,g,h,i", ','));
+    Assert.assertArrayEquals(STRING_TO_SPLIT_1.split(" "),
+        OkkamStrings.splitByChar(STRING_TO_SPLIT_1, ' '));
+    Assert.assertArrayEquals(STRING_TO_SPLIT_2.split(","),
+        OkkamStrings.splitByChar(STRING_TO_SPLIT_2, ','));
 
-    Assert.assertEquals("noSpaces".split(" ").length,
-        OkkamStrings.splitByChar("noSpaces", ' ').length);
-    Assert.assertNotEquals("a,b,c,d,e,f,g,h,i,,".split(",").length,
-        OkkamStrings.splitByChar("a,b,c,d,e,f,g,h,i,,", ',').length);
+    Assert.assertEquals(STRING_WITHOUT_SPACES.split(" ").length,
+        OkkamStrings.splitByChar(STRING_WITHOUT_SPACES, ' ').length);
+    Assert.assertNotEquals(STRING_TO_SPLIT_3.split(",").length,
+        OkkamStrings.splitByChar(STRING_TO_SPLIT_3, ',').length);
     Assert.assertArrayEquals(new String[] { "a", "b", "c", "d", "e", "f", "g", "h", "i", "", "" },
-        OkkamStrings.splitByChar("a,b,c,d,e,f,g,h,i,,", ','));
+        OkkamStrings.splitByChar(STRING_TO_SPLIT_3, ','));
   }
 
 }
