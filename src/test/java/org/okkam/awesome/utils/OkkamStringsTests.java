@@ -2,7 +2,6 @@ package org.okkam.awesome.utils;
 
 import org.junit.Assert;
 import org.junit.Test;
-import org.okkam.awesome.utils.OkkamStrings;
 
 public class OkkamStringsTests {
 
@@ -13,9 +12,11 @@ public class OkkamStringsTests {
   public static final String GOOD_STRING_2 = "test string2";
   public static final String GOOD_STRING_3 = "test string3";
   public static final String STRING_WITHOUT_SPACES = "stringwithnospaces";
+  public static final String STRING_TO_DUPLICATE = "abc";
   public static final String STRING_TO_SPLIT_1 = "  a  b  c";
   public static final String STRING_TO_SPLIT_2 = "a,b,c,d,e,f,g,h,i";
   public static final String STRING_TO_SPLIT_3 = "a,b,c,d,e,f,g,h,i,,";
+  public static final String[] STRING_TO_MANIPULATE = { "a", "b", "c", "d", "e", "f" };
 
   @Test
   public void testIsEmptyOrNull() {
@@ -113,6 +114,38 @@ public class OkkamStringsTests {
         OkkamStrings.splitByChar(STRING_TO_SPLIT_3, ',').length);
     Assert.assertArrayEquals(new String[] { "a", "b", "c", "d", "e", "f", "g", "h", "i", "", "" },
         OkkamStrings.splitByChar(STRING_TO_SPLIT_3, ','));
+  }
+
+  @Test
+  public void testConcatRange() {
+    Assert.assertEquals("a,b,c", OkkamStrings.concatRange(STRING_TO_MANIPULATE, ",", 0, 2));
+    Assert.assertEquals("a", OkkamStrings.concatRange(STRING_TO_MANIPULATE, ",", 0, 0));
+    Assert.assertEquals("d", OkkamStrings.concatRange(STRING_TO_MANIPULATE, ",", 3, 3));
+  }
+
+  @Test(expected = IllegalArgumentException.class)
+  public void testConcatRangeFail() {
+    OkkamStrings.concatRange(STRING_TO_MANIPULATE, ",", 3, 2);
+  }
+
+  @Test
+  public void testConcatRanges() {
+    Assert.assertEquals("a,b,c,e,f",
+        OkkamStrings.concatRanges(STRING_TO_MANIPULATE, ",", 0, 2, 4, 5));
+    Assert.assertEquals("a,f", OkkamStrings.concatRanges(STRING_TO_MANIPULATE, ",", 0, 0, 5, 5));
+    Assert.assertEquals("d,a,b,c",
+        OkkamStrings.concatRanges(STRING_TO_MANIPULATE, ",", 3, 3, 0, 2));
+  }
+
+  @Test(expected = IllegalArgumentException.class)
+  public void testConcatRangesFail() {
+    OkkamStrings.concatRanges(STRING_TO_MANIPULATE, ",", 3, 2, 1);
+  }
+
+  @Test
+  public void testDuplicate() {
+    Assert.assertEquals("abc", OkkamStrings.duplicate(STRING_TO_DUPLICATE, 1));
+    Assert.assertEquals("abcabcabcabcabc", OkkamStrings.duplicate(STRING_TO_DUPLICATE, 5));
   }
 
 }
