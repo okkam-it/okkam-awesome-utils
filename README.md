@@ -63,6 +63,9 @@ A library containing some awesome, incredible, unbelievable utils. Very common f
 + String separateArrayBy(T[] array, String separator) -> Generate a String based on array values and separator
 + String separateTreeMapValuesBy(Map<T, String> map, String separator) -> Generate a String based on map values and separator. Pass a TreeMap to guarantee ordering
 + String[] splitByChar(String stringToSplit, char charToSplit) -> Split the string by char. Trailing empty array cells will not be removed.
++ String concatRange(T[] arr, String separator, int from, int to) -> Generate a String by concatenating Array fields between 'from' and 'to' position.
++ String concatRanges(T[] arr, String separator, int... ranges) -> Generate a String by concatenating Array fields between some position ranges.
++ String duplicate(String stringToDuplicate, int times) --> Duplicate the string n times.
 ```
 
 ## Usage:
