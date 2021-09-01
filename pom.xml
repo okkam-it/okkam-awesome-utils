@@ -5,11 +5,22 @@
 	<version>1.0.2</version>
 	<name>Okkam Awesome Utils</name>
 
-	<parent>
-		<groupId>org.sonatype.oss</groupId>
-		<artifactId>oss-parent</artifactId>
-		<version>9</version>
-	</parent>
+	<distributionManagement>
+		<snapshotRepository>
+			<id>ossrh</id>
+			<url>https://oss.sonatype.org/content/repositories/snapshots</url>
+		</snapshotRepository>
+		<repository>
+			<id>ossrh</id>
+			<url>https://oss.sonatype.org/service/local/staging/deploy/maven2/</url>
+		</repository>
+	</distributionManagement>
+
+	<!-- <parent> -->
+	<!-- <groupId>org.sonatype.oss</groupId> -->
+	<!-- <artifactId>oss-parent</artifactId> -->
+	<!-- <version>9</version> -->
+	<!-- </parent> -->
 
 	<organization>
 		<name>Okkam srl</name>
@@ -39,7 +50,8 @@
 		<connection>scm:git:git://github.com/okkam-it/okkam-awesome-utils.git</connection>
 		<developerConnection>scm:git:git@github.com:okkam-it/okkam-awesome-utils.git</developerConnection>
 		<url>https://github.com/okkam-it/okkam-awesome-utils</url>
-	</scm>
+	  <tag>okkam-awesome-utils-1.0.2</tag>
+  </scm>
 
 	<licenses>
 		<license>
@@ -170,7 +182,13 @@
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-release-plugin</artifactId>
+				<configuration>
+					<checkModificationExcludes>
+						<checkModificationExclude>pom.xml</checkModificationExclude>
+					</checkModificationExcludes>
+				</configuration>
 			</plugin>
+
 			<plugin>
 				<groupId>org.sonatype.plugins</groupId>
 				<artifactId>nexus-staging-maven-plugin</artifactId>
